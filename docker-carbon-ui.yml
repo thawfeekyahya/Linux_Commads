@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  carbonui_x86_64:
+    image: gsep.daimler.com/ntg7-uiswbi-uisw_buildimages/carbon-base:20.04-stable
+    container_name: carbonui_x86_64
+    environment:
+      - DISPLAY=$DISPLAY
+      - XDG_RUNTIME_DIR=/root
+      - ARTIFACTORY_API_KEY=$ARTIFACTORY_API_KEY
+      - ARTIFACTORY_LOCATION=$ARTIFACTORY_LOCATION
+      - HTTP_PROXY=http:/53.88.72.33:3128
+      - HTTPS_PROXY=http://53.88.72.33:3128
+      - QT_PLUGIN_PATH=/home/thyahya/Projects/builds/build_carbon_ui/qt-install/latest/plugins
+      - QML2_IMPORT_PATH=/home/thyahya/Projects/builds/build_carbon_ui/qt-install/latest/qml
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/thyahya/Projects:/home/thyahya/Projects
+      - /home/thyahya/Projects/builds:/home/thyahya/Projects/builds
+      - /home/thyahya/.Xauthority:/tmp/.XAuthority
+    network_mode: host

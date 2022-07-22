@@ -1,0 +1,22 @@
+docker run -it -v /home/osboxes/temp/test:/test -v /home/osboxes/Projects/builds/build_carbon_ui_develop/qt-install/latest:/qt -v /usr/bin:/mybin -e DISPLAY=$DISPLAY  -v /tmp/.X11-unix:/tmp/.X11-unix -u $(id -u ${USER}):$(id -g ${USER})  -e XDG_RUNTIME_DIR=/root  f5fd889867fb  bash 
+
+
+=============
+docker-compose.yml
+=============
+
+version: "3.4"
+
+services:
+  carbonui_linux:
+    image: gsep.daimler.com/ntg7-uiswbi-uisw_buildimages/carbon-base:custom
+    container_name: carbonui_linux
+    environment:
+      - DISPLAY=$DISPLAY
+      - XDG_RUNTIME_DIR=/root
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/thyahya/Projects:/Projects
+      - /home/thyahya/builds:/builds
+      - /home/thyahya/temp:/temp
+    network_mode: host
