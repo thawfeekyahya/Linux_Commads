@@ -40,3 +40,7 @@ ffmpeg -i input.ogv \
    -c:v libx264 -preset veryslow -crf 22 \
    output.mp4
 
+
+//Niceness // Priorty scheduling
+nice -n 5 /bin/executable_name
+
