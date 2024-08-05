@@ -1,9 +1,16 @@
-set number
 set relativenumber
 syntax on
 filetype plugin indent on
 au FileType cpp setlocal expandtab shiftwidth=4 tabstop=4
 
+  
+" Use xclip for clipboard operations
+  if executable('xclip')
+  augroup XclipYank
+   autocmd!
+   autocmd TextYankPost * if v:event.operator is 'y' | call system('xclip -selection clipboard', @0) | endif     
+   augroup END
+endif
 
 
 
