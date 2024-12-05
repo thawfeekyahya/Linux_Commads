@@ -1,3 +1,8 @@
+### Installing vim-plug plugin manager
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 ### Matching braces
 
 % -> to switch between matching braces
@@ -33,3 +38,5 @@ vg<C-x> ->  Decrement all numbers in a visual selection by a specific amount
 ### Modifying selection after visual selection
 
 o -> by using o key we can switch between selection start and selection end
+
+

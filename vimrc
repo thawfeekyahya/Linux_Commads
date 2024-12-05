@@ -23,6 +23,11 @@ call plug#begin('~/.vim/plugged')
 "Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 
+"FuzzyFind tool plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
 call plug#end()
 " plug end-------------------------------------------------- 
 
