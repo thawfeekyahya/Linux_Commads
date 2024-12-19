@@ -1,4 +1,7 @@
+nnoremap <leader>f :Files<CR>
+set foldcolumn=1
 set relativenumber
+set number
 syntax on
 filetype plugin indent on
 au FileType cpp setlocal expandtab shiftwidth=4 tabstop=4
@@ -14,19 +17,14 @@ endif
 
 
 
-
 " plug begin -------------------------------------------------- 
 call plug#begin('~/.vim/plugged')
-
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
-
-"FuzzyFind tool plugin
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 
 call plug#end()
 " plug end-------------------------------------------------- 
