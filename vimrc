@@ -1,4 +1,6 @@
+nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <leader>f :Files<CR>
+set tags=./tags;,tags
 set foldcolumn=1
 set relativenumber
 set number
@@ -25,6 +27,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/tagbar'
 
 call plug#end()
 " plug end-------------------------------------------------- 
@@ -34,5 +37,3 @@ call plug#end()
 "let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 "let g:ycm_confirm_extra_conf = 0
 "let g:ycm_key_invoke_completion = '<C-Space>'
-
-
