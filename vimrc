@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/tagbar'
+Plug 'peterhoeg/vim-qml'
 
 call plug#end()
 " plug end-------------------------------------------------- 
