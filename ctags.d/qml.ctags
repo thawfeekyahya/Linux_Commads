@@ -1,5 +1,9 @@
---langdef=QML
---langmap=QML:.qml
+--langdef=qml
+--langmap=c++:.cpp.h.hpp.cxx.hxx.cc.hh
+--langmap=qml:.qml
+--languages=c++,qml
+
+#QML Tag generation
 --regex-QML=/^[ \t]*property[ \t]+[a-zA-Z0-9_]+[ \t]+([a-zA-Z0-9_]+)/\1/p,property/
 --regex-QML=/^[ \t]*function[ \t]+([a-zA-Z0-9_]+)/\1/f,function/
 --regex-QML=/^[ \t]*id:[ \t]*([a-zA-Z0-9_]+)/\1/i,id/
@@ -7,9 +11,6 @@
 --regex-QML=/^[ \t]*Rectangle[ \t]+([a-zA-Z0-9_]+)/\1/r,rectangle/
 --regex-QML=/^[ \t]*Item[ \t]+([a-zA-Z0-9_]+)/\1/m,item/
 
---langmap=c++:.cpp.h.hpp.cxx.hxx.cc.hh
---langmap=qml:.qml
---languages=c++,qml
 
 # Exclude generated files if needed
 --exclude=*.moc
