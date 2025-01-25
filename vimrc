@@ -1,5 +1,6 @@
 nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <leader>f :Files<CR>
+set cursorline
 set tags=./tags;,tags
 set foldcolumn=1
 set relativenumber
