@@ -1,3 +1,3 @@
 export ARTIFACT_MD5_CHECKSUM=$(md5sum TestAssetPackage.tar.gz | awk '{print $1}')
 
-curl -H "X-JFrog-Art-Api:$ARTIFACTORY_API_KEY" -H "X-Checksum-MD5:${ARTIFACT_MD5_CHECKSUM}" -T TestAssetPackage.tar.gz  "https://artifactory/UISWFW-UISW_Framework/TYahya/TestAssetPackage.tar.gz"	
+curl -H "X-JFrog-Art-Api:$ARTIFACTORY_API_KEY" -H "X-Checksum-MD5:${ARTIFACT_MD5_CHECKSUM}" -T TestAssetPackage.tar.gz  "https://<PATH>/TestAssetPackage.tar.gz"	
