@@ -1,34 +1,28 @@
 # Enable parsing of Qt-specific keywords
 --langmap=C++:.cpp.h.hpp.hxx
 
-# Detect Q_OBJECT macro (used for meta-object system)
+# Detect Q_OBJECT macro
 --regex-C++=/^[ \t]*Q_OBJECT$/Q_OBJECT/o,qt
 
-# Detect signal and slot declarations
+# Detect signals and slots
 --regex-C++=/^[ \t]*signals:[ \t]*$/signals/s,qt
---regex-C++=/^[ \t]*slots:[ \t]*$/slots/s,qt
---regex-C++=/^[ \t]*public[ \t]+slots:[ \t]*$/public_slot/s,qt
---regex-C++=/^[ \t]*private[ \t]+slots:[ \t]*$/private_slot/s,qt
---regex-C++=/^[ \t]*protected[ \t]+slots:[ \t]*$/protected_slot/s,qt
+--regex-C++=/^[ \t]*slots:[ \t]*$/slots/t,qt
+--regex-C++=/^[ \t]*public[ \t]+slots:[ \t]*$/public_slots/T,qt
+--regex-C++=/^[ \t]*private[ \t]+slots:[ \t]*$/private_slots/U,qt
+--regex-C++=/^[ \t]*protected[ \t]+slots:[ \t]*$/protected_slots/V,qt
 
-# Detect Qt property macros
---regex-C++=/^[ \t]*Q_PROPERTY[ \t]+\(([A-Za-z0-9_]+)/\1/P,qt_property/
---regex-C++=/^[ \t]*Q_SIGNAL[ \t]+\(([A-Za-z0-9_]+)/\1/Q_SIGNAL/
---regex-C++=/^[ \t]*Q_SLOT[ \t]+\(([A-Za-z0-9_]+)/\1/Q_SLOT/
---regex-C++=/^[ \t]*Q_INVOKABLE[ \t]+\(([A-Za-z0-9_]+)/\1/Q_INVOKABLE/
+# Detect Q_PROPERTY
+--regex-C++=/^[ \t]*Q_PROPERTY[ \t]+\(([A-Za-z0-9_]+)/\1/P,qt
 
-# Detect Qt-specific methods
---regex-C++=/^[ \t]*virtual[ \t]+void[ \t]+(event|mousePressEvent|mouseReleaseEvent|mouseMoveEvent|keyPressEvent|keyReleaseEvent)[ \t]*\(/\\1/method,qt/
---regex-C++=/^[ \t]*(paintEvent|resizeEvent|focusInEvent|focusOutEvent|wheelEvent)[ \t]*\(/\\1/method,qt/
+# Detect Qt event handler methods
+--regex-C++=/^[ \t]*virtual[ \t]+void[ \t]+(event|mousePressEvent|mouseReleaseEvent|mouseMoveEvent|keyPressEvent|keyReleaseEvent)[ \t]*\(/\\1/M,qt/
+--regex-C++=/^[ \t]*(paintEvent|resizeEvent|focusInEvent|focusOutEvent|wheelEvent)[ \t]*\(/\\1/M,qt/
 
-# Detect QObject-based class names (public QObject)
---regex-C++=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*:[ \t]*public[ \t]+QObject/\1/qobject_class/
+# Detect QObject-based class names
+--regex-C++=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*:[ \t]*public[ \t]+QObject/\1/Q,qt/
 
-# Detect QObject-based class names with multiple inheritance
---regex-C++=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*:[ \t]*public[ \t]+([A-Za-z0-9_]+),[ \t]*public[ \t]+QObject/\1/qobject_class/
+# Detect Qt UI class names (e.g., MainWindow : QMainWindow)
+--regex-C++=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*:[ \t]*public[ \t]+Q[A-Za-z0-9_]+/\1/C,qt/
 
-# Detect Qt UI Class Definitions (e.g., MainWindow : QMainWindow)
---regex-C++=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*:[ \t]*public[ \t]+Q[A-Za-z0-9_]+/\1/qt_class/
-
-# Detect connect() signal-slot connection
---regex-C++=/connect\(\s*([A-Za-z0-9_]+),\s*&?\s*([A-Za-z0-9_]+)::([A-Za-z0-9_]+),\s*&?\s*([A-Za-z0-9_]+)::([A-Za-z0-9_]+)/\2::\3 → \4::\5/connect/
+# Detect connect() signal-slot connections (Use 'X' instead of 'c' to avoid conflicts)
+--regex-C++=/connect\(\s*([A-Za-z0-9_]+),\s*&?\s*([A-Za-z0-9_]+)::([A-Za-z0-9_]+),\s*&?\s*([A-Za-z0-9_]+)::([A-Za-z0-9_]+)/\2::\3 → \4::\5/X,qt/
