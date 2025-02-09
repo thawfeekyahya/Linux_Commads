@@ -1,17 +1,30 @@
---langdef=qml
---langmap=c++:.cpp.h.hpp.cxx.hxx.cc.hh
---langmap=qml:.qml
---languages=c++,qml
+# Define QML as a new language
+--langdef=QML
+--langmap=QML:.qml
 
-#QML Tag generation
---regex-QML=/^[ \t]*property[ \t]+[a-zA-Z0-9_]+[ \t]+([a-zA-Z0-9_]+)/\1/p,property/
+# QML property parsing (detects `property type name`)
+--regex-QML=/^[ \t]*property[ \t]+(default[ \t]+|alias[ \t]+|list<[a-zA-Z0-9_]+>[ \t]+|[a-zA-Z0-9_]+[ \t]+)([a-zA-Z0-9_]+)/\2/p,property/
+
+# QML function parsing (detects `function name`)
 --regex-QML=/^[ \t]*function[ \t]+([a-zA-Z0-9_]+)/\1/f,function/
---regex-QML=/^[ \t]*id:[ \t]*([a-zA-Z0-9_]+)/\1/i,id/
+
+# QML id parsing (detects `id: myId`)
+--regex-QML=/^[ \t]*id:[ \t]*([^;\n]+)/\1/i,id/
+
+# QML Component definition
 --regex-QML=/^[ \t]*Component[ \t]+([a-zA-Z0-9_]+)/\1/c,component/
+
+# QML Item-based UI components (Rectangle, Item, etc.)
 --regex-QML=/^[ \t]*Rectangle[ \t]+([a-zA-Z0-9_]+)/\1/r,rectangle/
 --regex-QML=/^[ \t]*Item[ \t]+([a-zA-Z0-9_]+)/\1/m,item/
 
+# Extract custom class names from 'MyComponent.qml'
+--regex-QML=/^([A-Z][A-Za-z0-9_]+)[ \t]*\{/\1/C,class/
 
-# Exclude generated files if needed
+# Match nested properties like root.someProperty
+--regex-QML=/^[ \t]*([A-Za-z_][A-Za-z0-9_]*)[ \t]*\.[ \t]*([A-Za-z_][A-Za-z0-9_]*)/\1.\2/v,variable/
+
+# Exclude Qt-generated files if needed
 --exclude=*.moc
 --exclude=*.ui
+--exclude=*.qmlc
