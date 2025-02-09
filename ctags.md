@@ -6,7 +6,7 @@ sudo apt install universal-ctags
 ## Enable ctags for qml and cpp 
 
 ```
-ctags -R --languages=qml,c++ .
+ctags -R --languages=QML,C++ .
 ```
 
 ## Ctags config directory
