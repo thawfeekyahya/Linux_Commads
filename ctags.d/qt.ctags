@@ -1,0 +1,12 @@
+# Enable parsing of Qt-specific keywords
+--langmap=C++:.cpp.h.hpp.hxx
+--regex-C++=/^Q_OBJECT$/Q_OBJECT/o,qt
+--regex-C++=/^[ \t]*signals:[ \t]*$/signals/s,qt
+--regex-C++=/^[ \t]*slots:[ \t]*$/slots/s,qt
+--regex-C++=/^[ \t]*public[ \t]+slots:[ \t]*$/public_slot/s,qt
+--regex-C++=/^[ \t]*private[ \t]+slots:[ \t]*$/private_slot/s,qt
+--regex-C++=/^[ \t]*protected[ \t]+slots:[ \t]*$/protected_slot/s,qt
+--regex-C++=/^[ \t]*Q_PROPERTY[ \t]+\(\w+/Q_PROPERTY/p,qt
+--regex-C++=/^[ \t]*Q_SIGNAL[ \t]+\(\w+/Q_SIGNAL/p,qt
+--regex-C++=/^[ \t]*Q_SLOT[ \t]+\(\w+/Q_SLOT/p,qt
+--regex-C++=/^[ \t]*Q_INVOKABLE[ \t]+\(\w+/Q_INVOKABLE/p,qt
