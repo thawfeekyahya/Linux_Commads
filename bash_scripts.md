@@ -14,6 +14,13 @@ testname=`echo $name | cut -d '.' -f1`
 
 ```
 
+# Find the file rename with a different extension
+
+```
+find . -type f -name "*.qrc" -exec bash -c 'mv "$0" "${0}.bak"' {} \;
+
+```
+
 # Find filename with the name "config" and replace the link
 // {} placeholder for find files
 // _+ end terminates list of arguments // required by -exec
