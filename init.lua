@@ -25,20 +25,24 @@ if vim.fn.executable('xclip') == 1 then
   })
 end
 
--- Plugin manager (vim-plug in Lua)
-vim.cmd [[
-call plug#begin('~/.vim/plugged')
+-- Initialize packer.nvim
+vim.cmd [[packadd packer.nvim]]
 
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/tagbar'
-Plug 'peterhoeg/vim-qml'
+require('packer').startup(function(use)
+  -- Plugin manager itself
+  use 'wbthomason/packer.nvim'
 
-call plug#end()
-]]
+  -- File Finder (fzf)
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
 
--- YouCompleteMe settings (Commented out as in original)
--- vim.g.ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
--- vim.g.ycm_confirm_extra_conf = 0
--- vim.g.ycm_key_invoke_completion = '<C-Space>'
+  -- Auto-pairing brackets
+  use 'jiangmiao/auto-pairs'
+
+  -- Tagbar for code navigation
+  use 'preservim/tagbar'
+
+  -- QML syntax highlighting
+  use 'peterhoeg/vim-qml'
+end)
+
