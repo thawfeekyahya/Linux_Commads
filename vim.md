@@ -11,18 +11,22 @@ sudo apt install vim-gtk3
 ```
 
 ## Installing vim-plug plugin manager
-
+```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 ## Installing vim-plug for NeoVim
+```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 ## Installing packer for NeoVim (lua)
-
+```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
 
 ## Neo vim config file location
 ```
