@@ -19,7 +19,7 @@ https://git-scm.com/docs/git-worktree
 git worktree add branch path
 ```
 
-# Git Worktree with remotes
+# Git Worktree with origin/remotes
 ```
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 git fetch
