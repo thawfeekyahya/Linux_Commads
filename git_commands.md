@@ -32,3 +32,8 @@ https://git-scm.com/book/en/v2/Git-Tools-Searching
 git log -S "expression"
 ```
 
+# Git view submodle hash
+```
+git ls-tree branch_name path/to/submodule
+```
+
