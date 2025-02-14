@@ -33,6 +33,11 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 ~/user/.config/nvim/init.lua
 ```
 
+## Config update-alternatives nvim as vim
+```
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 100
+```
+
 ## Matching braces
 
 % -> to switch between matching braces
