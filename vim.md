@@ -1,5 +1,14 @@
-## Install Clip board enabled Vim
+## Install Neo Vim
+```
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update && sudo apt install neovim -y
+```
+
+
+## Install Vim with clipboard
+```
 sudo apt install vim-gtk3
+```
 
 ## Installing vim-plug plugin manager
 
