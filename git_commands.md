@@ -13,10 +13,22 @@ git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $commit_id | tar
 for f in $(git ls-files); do git mv $f /home/thyahya/Projects/carbon-ui/uikit/uisdk/src_wl/assets; done
 ```
 
+# Git Adding a new worktree
+https://git-scm.com/docs/git-worktree 
+```
+git worktree add branch path
+```
+
 # Git Worktree with remotes
 ```
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 git fetch
 git branch -r
+```
+
+# Git Search
+https://git-scm.com/book/en/v2/Git-Tools-Searching 
+```
+git log -S "expression"
 ```
 
