@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>gl", ":Telescope git_bcommits<CR>", { desc = "View 
 
 
 
--- ey mappings
+-- other mappings
 vim.keymap.set('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
 vim.keymap.set('n', '<Leader>t', '<cmd>TagbarToggle<CR>', { desc = 'Toggle Tagbar' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
