@@ -25,12 +25,11 @@ vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blam
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Settings
+vim.opt.tags = { "./tags", "tags" }
 vim.opt.cursorline = true
-vim.opt.tags = "./tags;,tags"
 vim.opt.foldcolumn = "1"
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.cmd("syntax on")
 vim.cmd("filetype plugin indent on")
 
 -- Plugin manager (vim-plug in Lua)
