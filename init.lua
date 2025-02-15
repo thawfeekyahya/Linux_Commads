@@ -24,6 +24,14 @@ vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blam
 -- Git (LazyGit)
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 
+-- Toggle LSP Warnings
+vim.keymap.set("n", "<leader>tw", function()
+  local current = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({
+    virtual_text = not current,
+  })
+end, { desc = "Toggle LSP Warnings" })
+
 -- Settings
 vim.opt.tags = { "./tags", "tags" }
 vim.opt.cursorline = true
