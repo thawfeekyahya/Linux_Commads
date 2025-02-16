@@ -2,6 +2,8 @@
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
+-- Paste without overwriting clipboard in Visual mode
+vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', { noremap = true, silent = true })
 
 -- Telescope Key mappings
 vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Find files' })
