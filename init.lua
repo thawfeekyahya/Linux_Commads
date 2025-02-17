@@ -55,6 +55,9 @@ require('packer').startup(function(use)
   use 'junegunn/fzf.vim'
   use 'preservim/tagbar'
 
+  -- CMake Integration
+  use 'Civitasv/cmake-tools.nvim'
+
   use { 
      "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim" 
@@ -120,7 +123,7 @@ local lspconfig = require("lspconfig")
 
 -- Enable Clangd for C++ (Qt)
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--background-index" },
+  cmd = { "clangd", "--background-index","--compile-commands-dir=build" },
   filetypes = { "cpp", "c", "objc", "objcpp", "h", "hpp" },
 })
 
@@ -135,6 +138,15 @@ vim.diagnostic.config({
   virtual_text = true,
   signs = true,
   update_in_insert = false,
+})
+
+-- CMake Setup
+require("cmake-tools").setup({
+    cmake_command = "cmake",        -- CMake command
+    cmake_build_directory = "build",  -- Output directory
+    cmake_build_type = "Debug",     -- Default build type
+    cmake_generate_options = { "-G", "Ninja" },  -- Use Ninja (remove for Make)
+    cmake_regenerate_on_save = true,  -- Auto-regenerate on save
 })
 
 
