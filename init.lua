@@ -28,6 +28,17 @@ vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
 
 
+-- View git log
+vim.keymap.set("n", "<leader>gl", function()
+  require("telescope.builtin").git_bcommits { git_command = { "git", "log", "--pretty=format:%h %an %ar %s" } }
+end, { desc = "Git BCommits with Full Log" })
+
+-- switch source / header
+vim.keymap.set("n", "<leader>sw", function()
+  vim.lsp.buf.execute_command({ command = "_clangd.switchSourceHeader" })
+end, { desc = "Switch between source and header" })
+
+
 -- Git (LazyGit)
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 
