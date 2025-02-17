@@ -11,13 +11,14 @@ vim.keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', { desc = 'Live
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { desc = 'Find Buffers' })
 vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>', { desc = 'Find Recent Files' })
 vim.keymap.set("n", "<leader>gl", ":Telescope git_bcommits<CR>", { desc = "View Git Log for Current File" })
+vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>', { desc = "Search Symbols" })
+
 
 -- Reference search
 vim.keymap.set("n", "rs", require('telescope.builtin').lsp_references, { desc = "Find function references" })
 
 -- other mappings
 vim.keymap.set('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
-vim.keymap.set('n', '<Leader>t', '<cmd>TagbarToggle<CR>', { desc = 'Toggle Tagbar' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
 vim.keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true })
 
@@ -73,7 +74,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'  -- Plugin manager
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use 'preservim/tagbar'
 
   -- CMake Integration
   use 'Civitasv/cmake-tools.nvim'
@@ -118,6 +118,8 @@ require('packer').startup(function(use)
     requires = { "nvim-lua/plenary.nvim" }
   }
 
+  -- telescope symbol finder
+  use 'nvim-telescope/telescope-symbols.nvim'
 
   -- Statusline
   use "nvim-lualine/lualine.nvim"
