@@ -148,9 +148,9 @@ lspconfig.clangd.setup({
 })
 
 -- Enable QML LSP (qmlls)
-lspconfig.qmlls.setup({
-  cmd = { "qmlls" },  -- Make sure you have qmlls6 installed
-  filetypes = { "qml" },
+require('lspconfig').qmlls.setup({
+  cmd = { "qmlls" },         -- Make sure you have qmlls installed
+  filetypes = { "qml" }     -- QML files will use qmlls
 })
 
 -- Enable LSP diagnostics
