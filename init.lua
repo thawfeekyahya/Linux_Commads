@@ -34,8 +34,16 @@ vim.keymap.set("n", "<leader>gl", function()
 end, { desc = "Git BCommits with Full Log" })
 
 -- switch source / header
+-- switch source / header
 vim.keymap.set("n", "<leader>sw", function()
-  vim.lsp.buf.execute_command({ command = "_clangd.switchSourceHeader" })
+  local params = { uri = vim.uri_from_bufnr(0) }
+  vim.lsp.buf_request(0, "textDocument/switchSourceHeader", params, function(_, result)
+    if result then
+      vim.cmd("edit " .. vim.uri_to_fname(result))
+    else
+      print("No corresponding source/header file found!")
+    end
+  end)
 end, { desc = "Switch between source and header" })
 
 
