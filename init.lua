@@ -35,7 +35,7 @@ end, { desc = "Git BCommits with Full Log" })
 
 -- switch source / header
 -- switch source / header
-vim.keymap.set("n", "<leader>sw", function()
+vim.keymap.set("n", "<leader>hs", function()
   local params = { uri = vim.uri_from_bufnr(0) }
   vim.lsp.buf_request(0, "textDocument/switchSourceHeader", params, function(_, result)
     if result then
