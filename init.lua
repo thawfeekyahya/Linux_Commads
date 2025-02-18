@@ -13,6 +13,10 @@ vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>', { desc = 'Find 
 vim.keymap.set("n", "<leader>gl", ":Telescope git_bcommits<CR>", { desc = "View Git Log for Current File" })
 vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>', { desc = "Search Symbols" })
 
+-- yank current file path / name
+vim.keymap.set('n', '<leader>yf', ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
+vim.keymap.set('n', '<leader>yn', ':let @+ = expand("%:t")<CR>', { desc = "Copy file name" })
+
 
 -- Reference search
 vim.keymap.set("n", "rs", require('telescope.builtin').lsp_references, { desc = "Find function references" })
