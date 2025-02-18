@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
 
 -- Telescope marks
-vim.keymap.set('n', '<leader>tm', ':Telescope marks<CR>', { desc = "Open Marks Picker" })
+vim.keymap.set('n', '<leader>tm', require('telescope.builtin').marks, { desc = "Open Marks Picker" })
 
 -- View git log
 vim.keymap.set("n", "<leader>gl", function()
@@ -83,14 +83,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'  -- Plugin manager
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-
-  -- marks plugin
-  use {
-     'chentoast/marks.nvim',
-     config = function()
-        require'marks'.setup()
-     end
-  }
 
   -- CMake Integration
   use 'Civitasv/cmake-tools.nvim'
