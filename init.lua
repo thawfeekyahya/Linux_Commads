@@ -33,6 +33,8 @@ vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "Reset Gi
 vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
 
+-- Telescope marks
+vim.keymap.set('n', '<leader>tm', ':Telescope marks<CR>', { desc = "Open Marks Picker" })
 
 -- View git log
 vim.keymap.set("n", "<leader>gl", function()
@@ -79,6 +81,14 @@ require('packer').startup(function(use)
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
 
+  -- marks plugin
+  use {
+     'chentoast/marks.nvim',
+     config = function()
+        require'marks'.setup()
+     end
+  }
+
   -- CMake Integration
   use 'Civitasv/cmake-tools.nvim'
 
@@ -120,6 +130,10 @@ require('packer').startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" }
+
+    config = function()
+     require('telescope').load_extension('marks')
+    end
   }
 
   -- telescope symbol finder
