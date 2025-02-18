@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>gl", ":Telescope git_bcommits<CR>", { desc = "View 
 vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>', { desc = "Search Symbols" })
 
 -- yank current file path / name
-vim.keymap.set('n', '<leader>yf', ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
+vim.keymap.set('n', '<leader>yp', ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
 vim.keymap.set('n', '<leader>yn', ':let @+ = expand("%:t")<CR>', { desc = "Copy file name" })
 
 
