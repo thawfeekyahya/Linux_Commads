@@ -1,4 +1,5 @@
 --Re-maps
+vim.api.nvim_set_var('mapleader', ' ') -- Map leader key to space
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
@@ -17,6 +18,8 @@ vim.keymap.set('n', '<leader>fs', ':Telescope lsp_document_symbols<CR>', { desc 
 vim.keymap.set('n', '<leader>yp', ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
 vim.keymap.set('n', '<leader>yn', ':let @+ = expand("%:t")<CR>', { desc = "Copy file name" })
 
+-- yank variable under cursor to clipboard
+vim.keymap.set('n', '<leader>yv', '"+yiW', { desc = "Copy variable to clipboard" })
 
 -- Reference search
 vim.keymap.set("n", "rs", require('telescope.builtin').lsp_references, { desc = "Find function references" })
