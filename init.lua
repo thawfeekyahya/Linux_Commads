@@ -41,8 +41,8 @@ vim.keymap.set('n', '<leader>tm', require('telescope.builtin').marks, { desc = "
 
 -- View git log
 vim.keymap.set("n", "<leader>gl", function()
-  require("telescope.builtin").git_bcommits { git_command = { "git", "log", "--pretty=format:%h %an %ar %s" } }
-end, { desc = "Git BCommits with Full Log" })
+  require("telescope.builtin").git_bcommits()
+end, { desc = "Git BCommits" })
 
 -- switch source / header
 -- switch source / header
