@@ -1,6 +1,9 @@
 --Re-maps
 vim.g.mapleader = ' ' -- Map leader key to space
 
+-- Enable window numbering in status line
+vim.o.winbar = "%=%{winnr()} %f"
+
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
