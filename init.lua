@@ -150,6 +150,41 @@ require('packer').startup(function(use)
 
 end)
 
+-- Telescope Preview window scrolling
+require('telescope').setup({
+  defaults = {
+    layout_strategy = "horizontal",  -- Use horizontal layout for better preview
+    layout_config = {
+      preview_width = 0.5,  -- Adjust preview window width
+    },
+    file_ignore_patterns = { "node_modules", ".git" },
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
+    },
+    mappings = {
+      i = {
+        ["<C-p>"] = require('telescope.actions.layout').toggle_preview,  -- Toggle preview manually
+	      ["<C-l>"] = require('telescope.actions').preview_scrolling_right, -- Scroll right
+        ["<C-h>"] = require('telescope.actions').preview_scrolling_left, -- Scroll left
+      },
+    },
+  },
+  pickers = {
+    find_files = {
+      previewer = true,   -- ✅ Ensure previewer is enabled
+    },
+    live_grep = {
+      previewer = true,   -- ✅ Enable preview for live grep
+    }
+  }
+})
+
 
 -- Enable Treesitter for better syntax highlighting
 require("nvim-treesitter.configs").setup {
@@ -167,10 +202,29 @@ lspconfig.clangd.setup({
 })
 
 -- Enable QML LSP (qmlls)
-require('lspconfig').qmlls.setup({
-  cmd = { "qmlls" },         -- Make sure you have qmlls installed
-  filetypes = { "qml" }     -- QML files will use qmlls
-})
+local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
+
+lspconfig.qmlls.setup{
+    cmd = (function()
+        -- Find the project root
+        local root_dir = util.root_pattern("CMakeLists.txt", ".git")(vim.fn.getcwd())
+
+        -- If a project-specific qmlls.json exists, use it
+        if root_dir then
+            local qmlls_config = root_dir .. "/qmlls.json"
+            if vim.fn.filereadable(qmlls_config) == 1 then
+                return { "qmlls", "-I", qmlls_config }
+            end
+        end
+
+        -- Default fallback if no config is found
+        return { "qmlls" }
+    end)(),
+    filetypes = { "qml" },
+    root_dir = util.root_pattern(".qmlls.ini", "CMakeLists.txt")
+}
+
 
 -- Enable LSP diagnostics
 vim.diagnostic.config({
