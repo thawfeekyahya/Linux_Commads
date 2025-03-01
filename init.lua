@@ -1,5 +1,5 @@
 --Default Theme
-vim.cmd("colorscheme catppuccin") 
+vim.cmd("colorscheme rose-pine-main") 
 
 --Re-maps
 vim.g.mapleader = ' ' -- Map leader key to space
