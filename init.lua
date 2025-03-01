@@ -1,3 +1,6 @@
+--Default Theme
+vim.cmd("colorscheme catppuccin") 
+
 --Re-maps
 vim.g.mapleader = ' ' -- Map leader key to space
 
@@ -87,6 +90,12 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'  -- Plugin manager
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+
+ --Rose Pine theme
+  use { "rose-pine/neovim", as = "rose-pine" }
+
+  -- Catppuccin theme
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- CMake Integration
   use 'Civitasv/cmake-tools.nvim'
