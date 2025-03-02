@@ -43,6 +43,9 @@ vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "Reset Gi
 vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
 
+-- Outliner short cut
+vim.keymap.set('n', '<leader>to', '<cmd>AerialToggle!<CR>', {desc = "Tree outliner"})
+
 -- Telescope marks
 vim.keymap.set('n', '<leader>tm', require('telescope.builtin').marks, { desc = "Open Marks Picker" })
 
@@ -90,6 +93,15 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'  -- Plugin manager
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+
+ -- File Outline with dependencies
+  use {
+    'stevearc/aerial.nvim',
+    opts = {},
+    config = function()
+      require("aerial").setup()
+    end
+  }
 
  --Rose Pine theme
   use { "rose-pine/neovim", as = "rose-pine" }
