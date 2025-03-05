@@ -214,7 +214,7 @@ local lspconfig = require("lspconfig")
 
 -- Enable Clangd for C++ (Qt)
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--background-index","--compile-commands-dir=build" },
+  cmd = { "clangd", "--background-index" },
   filetypes = { "cpp", "c", "objc", "objcpp", "h", "hpp" },
 })
 
