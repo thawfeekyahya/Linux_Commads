@@ -259,6 +259,16 @@ require("cmake-tools").setup({
     cmake_regenerate_on_save = true,  -- Auto-regenerate on save
 })
 
+-- Enable folding for QML file type
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "qml", "cpp", "javascript" }, -- Multiple file types
+  callback = function()
+    vim.opt_local.foldmethod = "indent"  -- Set indent-based folding
+    vim.opt_local.foldenable = false     -- Do not fold by default
+  end,
+})
+
+
 
 require("gitsigns").setup {
   signs = {
