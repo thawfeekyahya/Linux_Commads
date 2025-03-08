@@ -1,3 +1,5 @@
+---require("telescope").load_extension("git_worktree")
+
 require("gitsigns").setup {
   signs = {
     add          = { text = "+" },
@@ -14,11 +16,15 @@ require("gitsigns").setup {
 -- Git shortcuts
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "Preview Git Hunk" })
-vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "Reset Git Hunk" })
-vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
-vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
+vim.keymap.set("n", "<leader>gR", ":Gitsigns reset_hunk<CR>", { desc = "Reset Git Hunk" })
+vim.keymap.set("n", "<leader>gD", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
+vim.keymap.set("n", "<leader>gB", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
 
 -- Telescope git log
 vim.keymap.set("n", "<leader>gl", function()
   require("telescope.builtin").git_bcommits()
 end, { desc = "Git BCommits" })
+
+vim.keymap.set("n", "<leader>gL", function()
+  require("telescope.builtin").git_commits()
+end, { desc = "Git Commits" })

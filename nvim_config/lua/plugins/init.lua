@@ -4,6 +4,12 @@ require("packer").startup(function(use)
    -- Statusline
   use "nvim-lualine/lualine.nvim"
 
+  -- Code Formatter
+  use "mhartington/formatter.nvim"
+
+  -- Nvim session manager
+  use 'Shatur/neovim-session-manager'
+
   -- File Outline with dependencies
   use {
     'stevearc/aerial.nvim',

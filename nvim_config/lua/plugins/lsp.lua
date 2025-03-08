@@ -10,30 +10,16 @@ local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
 
 lspconfig.qmlls.setup{
-    cmd = (function()
-        -- Find the project root
-        local root_dir = util.root_pattern("CMakeLists.txt", ".git")(vim.fn.getcwd())
-
-        -- If a project-specific qmlls.json exists, use it
-        if root_dir then
-            local qmlls_config = root_dir .. "/qmlls.json"
-            if vim.fn.filereadable(qmlls_config) == 1 then
-                return { "qmlls", "-I", qmlls_config }
-            end
-        end
-
-        -- Default fallback if no config is found
-        return { "qmlls" }
-    end)(),
-    filetypes = { "qml" },
+    cmd = { "qmlls" },  -- Make sure to add qt install path to your env PATH 
+    filetypes = { "qml", "qmljs" },
     root_dir = util.root_pattern(".qmlls.ini", "CMakeLists.txt")
 }
 
-
-vim.diagnostic.config({
-	virtual_text = true, signs = true, update_in_insert = false 
+lspconfig.cmake.setup({
+  cmd = { "cmake-language-server" },
+  filetypes = { "cmake" },
+  root_dir = require("lspconfig.util").root_pattern("CMakeLists.txt", ".git"),
 })
-
 
 -- Toggle LSP Warnings
 vim.keymap.set("n", "<leader>tw", function()
@@ -42,3 +28,6 @@ vim.keymap.set("n", "<leader>tw", function()
     virtual_text = not current,
   })
 end, { desc = "Toggle LSP Warnings" })
+
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
+
