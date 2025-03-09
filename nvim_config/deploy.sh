@@ -7,7 +7,7 @@ DEST="$HOME/.config/nvim"
 mkdir -p "$DEST"
 
 # Copy all files and directories from the current directory to ~/.config/nvim
-rsync -av --exclude=".git" ./ "$DEST"
+rsync -av --exclude="deploy.sh" --exclude=".git" ./ "$DEST"
 
 
 echo "✅ All files copied to $DEST"
