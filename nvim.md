@@ -1,6 +1,4 @@
-# LSP Dependencies
-
-## Language servers
+## LSP Dependencies
 
 CMake language server
 ```
