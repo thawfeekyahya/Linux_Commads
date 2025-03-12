@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local util = require('lspconfig.util')
 
 lspconfig.clangd.setup({ 
 	cmd = { "clangd", "--background-index" },
@@ -6,9 +7,6 @@ lspconfig.clangd.setup({
 })
 
 -- Enable QML LSP (qmlls)
-local lspconfig = require('lspconfig')
-local util = require('lspconfig.util')
-
 lspconfig.qmlls.setup{
     cmd = { "qmlls" },  -- Make sure to add qt install path to your env PATH 
     filetypes = { "qml", "qmljs" },
