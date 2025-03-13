@@ -27,8 +27,6 @@ vim.keymap.set("n", "<leader>tw", function()
   })
 end, { desc = "Toggle LSP Warnings" })
 
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
-
 -- LSP Powered Code Completion
 vim.api.nvim_set_keymap("i", "<C-Space>", "<C-x><C-o>", { noremap = true, silent = true })
 
