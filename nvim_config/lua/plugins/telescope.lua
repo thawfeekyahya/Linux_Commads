@@ -45,6 +45,10 @@ require('telescope').setup({
   }
 })
 
+-- Load marks extension
+--require("telescope").load_extension("marks")
+
+
 -- Keymaps
 vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Find files' })
 vim.keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', { desc = 'Live grep' })

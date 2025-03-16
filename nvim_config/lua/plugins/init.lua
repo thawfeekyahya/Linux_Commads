@@ -8,7 +8,7 @@ require("packer").startup(function(use)
   use "mhartington/formatter.nvim"
 
   -- Nvim session manager
-  use 'Shatur/neovim-session-manager'
+  use "stevearc/resession.nvim"
 
   -- File Outline with dependencies
   use {
@@ -73,5 +73,14 @@ require("packer").startup(function(use)
    --Themes
   use { "rose-pine/neovim", as = "rose-pine" }
   use { "catppuccin/nvim", as = "catppuccin" }
+
+  -- JS formatter
+  use "bfrg/vim-jq"
+
+  -- Marks 
+  use 'chentoast/marks.nvim'
+
+  -- Status Bar
+  use 'nvim-lualine/lualine.nvim'
 
 end)

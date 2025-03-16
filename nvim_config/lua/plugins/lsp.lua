@@ -30,3 +30,14 @@ end, { desc = "Toggle LSP Warnings" })
 -- LSP Powered Code Completion
 vim.api.nvim_set_keymap("i", "<C-Space>", "<C-x><C-o>", { noremap = true, silent = true })
 
+-- switch source / header
+vim.keymap.set("n", "<leader>sw", function()
+  local params = { uri = vim.uri_from_bufnr(0) }
+  vim.lsp.buf_request(0, "textDocument/switchSourceHeader", params, function(_, result)
+    if result then
+      vim.cmd("edit " .. vim.uri_to_fname(result))
+    else
+      print("No corresponding source/header file found!")
+    end
+  end)
+end, { desc = "Switch between source and header" })
