@@ -1,6 +1,6 @@
 require('lualine').setup({
   options = {
-    theme = 'powerline_dark', -- Change theme
+    theme = 'auto', -- Change theme
     section_separators = '', component_separators = ''
   },
   sections = {
