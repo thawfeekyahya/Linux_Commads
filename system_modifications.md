@@ -10,7 +10,7 @@ sudo swapon /swap.img
 
 ```
 
-## Extend existing hard disk size 
+## Extend nested hard disk size 
 
 drive:ubuntu--vg-ubuntu--lv
 ```
