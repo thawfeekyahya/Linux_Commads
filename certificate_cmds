@@ -1,1 +1,0 @@
-openssl pkcs12 -in certificate.pfx -info -nokeys -legacy
