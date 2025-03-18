@@ -1,0 +1,6 @@
+require("config.lazy")
+require("plugins.aerial")
+require("plugins.treesitter")
+require("plugins.telescope")
+require("core.options")
+require("core.keymaps")
