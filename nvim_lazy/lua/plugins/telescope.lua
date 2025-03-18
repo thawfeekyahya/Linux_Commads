@@ -6,8 +6,8 @@ return {
   local actions = require("telescope.actions")
   local action_layout = require("telescope.actions.layout")  -- ✅ Corrected reference
   
-  
   require('telescope').setup({
+
     extensions = {
       git_worktree = {},
       fzf = {},
@@ -28,7 +28,7 @@ return {
         "--smart-case",
         "--hidden", 
         "--no-ignore",
-        "-g", "!tags"
+        "-g=!tags"
       },
       mappings = {
         i = {
@@ -47,7 +47,8 @@ return {
         end
       },
       git_bcommits = {
-         git_command = { "git", "log", "--pretty=format:%h--%an--%m", "--follow", "--" }
+         use_git_root = false,  -- Ensure it works for the current file
+         git_command = { "git", "log", "--pretty=format:%h %s -- (%an) %ar", "--follow", "--"  }
       },
     }
   })
