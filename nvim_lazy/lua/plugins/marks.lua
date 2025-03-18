@@ -1,6 +1,5 @@
 return {
   -- Marks ,
-  {
      'chentoast/marks.nvim',
      config = function()
 	require('marks').setup {
@@ -39,5 +38,4 @@ return {
        mappings = {}
      }
      end
-  }
 }
