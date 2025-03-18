@@ -13,9 +13,9 @@ return {
       fzf = {},
     },
     defaults = {
-      layout_strategy = "horizontal",  -- Use horizontal layout for better preview
+      layout_strategy = "vertical",  -- Use horizontal layout for better preview
       layout_config = {
-        preview_width = 0.5,  -- Adjust preview window width
+        preview_height = 0.7,  -- Adjust preview window width
       },
       --file_ignore_patterns = { "node_modules", ".git" },
       vimgrep_arguments = {
@@ -52,8 +52,7 @@ return {
   -- Load marks extension
   require('telescope').load_extension("fzf")
   require('telescope').load_extension("git_worktree")
- 
-  
+
   -- Keymaps
   vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Find files' })
   vim.keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', { desc = 'Live grep' })
