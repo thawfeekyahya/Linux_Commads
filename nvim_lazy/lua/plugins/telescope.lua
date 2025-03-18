@@ -45,7 +45,10 @@ return {
         additional_args = function()
           return { "--hidden", "--no-ignore" }
         end
-      }
+      },
+      git_bcommits = {
+         git_command = { "git", "log", "--pretty=format:%h--%an--%m", "--follow", "--" }
+      },
     }
   })
   
@@ -68,5 +71,10 @@ return {
   -- Telescope marks
   vim.keymap.set('n', '<leader>tm', require('telescope.builtin').marks, { desc = "Open Marks Picker" })
 
-  end,
+  -- Telescope git log for currrent buffer
+  vim.keymap.set("n", "<leader>gl", function() require("telescope.builtin").git_bcommits() end, { desc = "Git BCommits" })
+  -- Telescope git log for current branch 
+  vim.keymap.set("n", "<leader>gL", function() require("telescope.builtin").git_commits() end, { desc = "Git Commits" })
+
+end,
 }

@@ -9,17 +9,19 @@ return {
     end,
   },
 
+  {'nvim-tree/nvim-web-devicons'},
+  
+  -- telescope symbol finder
+  {'nvim-telescope/telescope-symbols.nvim'},
+
   -- Native telescope support
-  {
-     "nvim-telescope/telescope-fzf-native.nvim",
-     build = "make",
-  },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", },
 
   -- Git worktree support
-  {
-     "ThePrimeagen/git-worktree.nvim",
-  },
+  { "ThePrimeagen/git-worktree.nvim"},
 
+  -- Lazy git
+  { "kdheepak/lazygit.nvim" },
 
 
   --Themes

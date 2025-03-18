@@ -1,5 +1,4 @@
 return {
-   {
      -- Git Signs,
      "lewis6991/gitsigns.nvim",
      config = function()
@@ -24,18 +23,5 @@ return {
       vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
       vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
       
-      -- Telescope git log for currrent buffer
-      vim.keymap.set("n", "<leader>gl", function()
-        require("telescope.builtin").git_bcommits()
-      end, { desc = "Git BCommits" })
-      
-      -- Telescope git log for current branch 
-      vim.keymap.set("n", "<leader>gL", function()
-        require("telescope.builtin").git_commits()
-      end, { desc = "Git Commits" })
     end
-  },
-
- {"kdheepak/lazygit.nvim"}
-
 }
