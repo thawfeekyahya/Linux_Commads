@@ -11,14 +11,8 @@ require("packer").startup(function(use)
   use "stevearc/resession.nvim"
 
   -- File Outline with dependencies
-  use {
-    'stevearc/aerial.nvim',
-    opts = {},
-    config = function()
-      require("aerial").setup()
-    end
-  }
-  
+  use 'stevearc/aerial.nvim'
+
   -- Treesitter for better syntax highlighting
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
@@ -56,13 +50,8 @@ require("packer").startup(function(use)
    use "mfussenegger/nvim-lint" 
    use "mfussenegger/nvim-dap"  -- Debugging support
    
-   use {
-     'nvim-tree/nvim-tree.lua',
-     config = function()
-       require("nvim-tree").setup()
-     end
-   }
-   
+   use 'nvim-tree/nvim-tree.lua'
+
    -- QML Syntax Support
    use "peterhoeg/vim-qml"
    
@@ -79,8 +68,4 @@ require("packer").startup(function(use)
 
   -- Marks 
   use 'chentoast/marks.nvim'
-
-  -- Status Bar
-  use 'nvim-lualine/lualine.nvim'
-
 end)
