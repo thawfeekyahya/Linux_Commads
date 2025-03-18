@@ -32,9 +32,17 @@ return {
       },
       mappings = {
         i = {
-          ["<C-p>"] = action_layout.toggle_preview,  -- ✅ Fixed reference
-          ["<C-l>"] = actions.preview_scrolling_right,
-          ["<C-h>"] = actions.preview_scrolling_left,
+          ["<C-p>"] = action_layout.toggle_preview, 
+          ["<C-e>"] = function(prompt_bufnr)
+             local entry = require("telescope.actions.state").get_selected_entry()
+             local file_path = entry and entry.path or entry[1]
+             if file_path then
+               vim.fn.jobstart({"xdg-open", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For Linux
+               -- vim.fn.jobstart({"open", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For macOS
+               -- vim.fn.jobstart({"explorer.exe", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For Windows
+             end
+             actions.close(prompt_bufnr)
+          end
         },
       },
     },
