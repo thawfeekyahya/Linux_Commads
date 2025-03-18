@@ -1,5 +1,7 @@
 return {
+
 "nvim-telescope/telescope.nvim" ,
+
  config = function() 
   local actions = require("telescope.actions")
   local action_layout = require("telescope.actions.layout")  -- ✅ Corrected reference
@@ -8,6 +10,7 @@ return {
   require('telescope').setup({
     extensions = {
       git_worktree = {},
+      fzf = {},
     },
     defaults = {
       layout_strategy = "horizontal",  -- Use horizontal layout for better preview
@@ -25,7 +28,7 @@ return {
         "--smart-case",
         "--hidden", 
         "--no-ignore",
-        " -g '!tags' "
+        "-g", "!tags"
       },
       mappings = {
         i = {
@@ -37,11 +40,8 @@ return {
     },
   
     pickers = {  -- ✅ Moved `pickers` outside `defaults`
-      find_files = {
-        previewer = true,   -- ✅ Ensure previewer is enabled
-      },
+      find_files = {},
       live_grep = {
-        previewer = true,   -- ✅ Enable preview for live grep
         additional_args = function()
           return { "--hidden", "--no-ignore" }
         end
@@ -50,8 +50,9 @@ return {
   })
   
   -- Load marks extension
-  --require("telescope").load_extension("marks")
-  
+  require('telescope').load_extension("fzf")
+  require('telescope').load_extension("git_worktree")
+ 
   
   -- Keymaps
   vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Find files' })
@@ -63,8 +64,8 @@ return {
   vim.keymap.set("n", "<Leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Colorscheme Picker" })
   
   -- Reference search
-  vim.keymap.set("n", "rs", require('telescope.builtin').lsp_references, { desc = "Find function references" })
-  
+  vim.keymap.set("n", "rs", "<cmd>Telescope lsp_references<CR>", { desc = "Find function references" })
+
   -- Telescope marks
   vim.keymap.set('n', '<leader>tm', require('telescope.builtin').marks, { desc = "Open Marks Picker" })
 

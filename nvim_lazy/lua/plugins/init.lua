@@ -9,6 +9,19 @@ return {
     end,
   },
 
+  -- Native telescope support
+  {
+     "nvim-telescope/telescope-fzf-native.nvim",
+     build = "make",
+  },
+
+  -- Git worktree support
+  {
+     "ThePrimeagen/git-worktree.nvim",
+  },
+
+
+
   --Themes
   { "rose-pine/neovim", name = "rose-pine" },
   { "catppuccin/nvim", name = "catppuccin" },
