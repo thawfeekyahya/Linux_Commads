@@ -21,7 +21,8 @@ require('telescope').setup({
       "--column",
       "--smart-case",
       "--hidden", 
-      "--no-ignore"
+      "--no-ignore",
+      " -g '!tags' "
     },
     mappings = {
       i = {
