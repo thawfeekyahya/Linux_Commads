@@ -40,13 +40,17 @@ git ls-tree branch_name path/to/submodule
 ## Git command shortcut for bash
 
 ```
-# ------------ Git log functions
+
 gl_name_only_by() {
-    git log --name-only --author="$1" --color=always | less -R
+    git log --name-only --author="$1"
 }
 
 gl_patch_by() {
-    git log -p --author="$1" --color=always | less -R
+    git log -p --author="$1"
+}
+
+gl_follow_file() {
+    git log -p --follow $1
 }
 
 ```
