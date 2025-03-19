@@ -44,8 +44,12 @@ return {
              actions.close(prompt_bufnr)
           end
         },
+	n = {
+              ["<Esc>"] = false,
+              ["q"] = require("telescope.actions").close,
+           }
+        },
       },
-    },
   
     pickers = {  -- ✅ Moved `pickers` outside `defaults`
       find_files = {},
