@@ -53,5 +53,9 @@ gl_follow_file() {
     git log -p --follow $1
 }
 
+git_archive_folder() {
+    git archive --format=zip --output=output.zip $1 $2 
+}
+
 ```
 
