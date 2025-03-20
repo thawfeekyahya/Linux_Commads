@@ -75,4 +75,10 @@ cdback() {
 
 ```
 
+## Dynamic log name
+
+```
+alias tee_log ="tee ~/workspace/logs/output_$(date +"%Y-%m-%d_%H-%M-%S").log"
+```
+
 
