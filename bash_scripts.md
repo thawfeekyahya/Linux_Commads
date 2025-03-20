@@ -62,3 +62,17 @@ ffmpeg -i input.ogv \
 nice -n 5 /bin/executable_name
 ```
 
+# Move up mutiple directories
+```
+cdback() {
+    local count=$1
+    local path=""
+    for ((i=0; i<count; i++)); do
+        path+="../"
+    done
+    cd "$path"
+}
+
+```
+
+
