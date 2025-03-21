@@ -36,13 +36,22 @@ return {
           ["<C-e>"] = function(prompt_bufnr)
              local entry = require("telescope.actions.state").get_selected_entry()
              local file_path = entry and entry.path or entry[1]
+      
              if file_path then
-               vim.fn.jobstart({"xdg-open", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For Linux
-               -- vim.fn.jobstart({"open", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For macOS
-               -- vim.fn.jobstart({"explorer.exe", vim.fn.fnamemodify(file_path, ":h")}, { detach = true }) -- For Windows
+                 local open_cmd = vim.fn.has("mac") == 1 and "open" or "xdg-open"
+                 vim.fn.jobstart({ open_cmd, vim.fn.fnamemodify(file_path, ":h") }, { detach = true })
              end
-             actions.close(prompt_bufnr)
-          end
+      
+             require("telescope.actions").close(prompt_bufnr)
+          end,
+
+          ["<C-f>"] = function(prompt_bufnr)
+             local ext = vim.fn.input("Filter by extension (e.g., qml, cpp, lua): ")
+             local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+             picker:refresh(require("telescope.finders").new_oneshot_job({
+               "fd", "-e", ext
+             }), { reset_prompt = true })
+          end,
         },
 	n = {
               ["<Esc>"] = false,
