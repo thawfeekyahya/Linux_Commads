@@ -32,8 +32,6 @@ return {
 
   {"mfussenegger/nvim-lint"},
   {"mfussenegger/nvim-dap"},  -- Debugging support,
-   
-  {'nvim-tree/nvim-tree.lua'},
 
    -- QML Syntax Support,
   {"peterhoeg/vim-qml"},

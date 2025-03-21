@@ -1,4 +1,4 @@
-# Find and replace
+## Find and replace
 
 ```
 find -name "*.qml" | xargs sed -i  '/\\ingroup/ i \\\class'
@@ -14,14 +14,14 @@ testname=`echo $name | cut -d '.' -f1`
 
 ```
 
-# Find the file rename with a different extension
+## Find the file rename with a different extension
 
 ```
 find . -type f -name "*.qrc" -exec bash -c 'mv "$0" "${0}.bak"' {} \;
 
 ```
 
-# Find filename with the name "config" and replace the link
+## Find filename with the name "config" and replace the link
 // {} placeholder for find files
 // _+ end terminates list of arguments // required by -exec
 
@@ -29,7 +29,7 @@ find . -type f -name "*.qrc" -exec bash -c 'mv "$0" "${0}.bak"' {} \;
 find -name config -exec sed -i 's/sedcagse0170.emea.bg.corpintra.net/gerrit.swf.cloud.corpintra.net/g' {} +
 ```
 
-# Find line number and insert in the beginning
+## Find line number and insert in the beginning
 
 ```
 
@@ -38,16 +38,16 @@ find -name config -exec sed -i 's/sedcagse0170.emea.bg.corpintra.net/gerrit.swf.
 @^ -> line start
 @142 -> line number
 
-sed -i -e '142s/^/#/ input.file
+sed -i -e '142s/^/##/ input.file
 ```
 
-# Search and Comment line
+## Search and Comment line
 ```
 grep -rl --include=\*.{qml,txt}  . -e "positionViewAtIndex" | xargs sed -i  -e '/positionViewAtIndex/ s/^/\/\//g' 
 ```
 
 
-# Video Conversions
+## Video Conversions
 ```
 ffmpeg -f s16le -ar 16k -ac 1 -i userUtterance.raw file.wav
 
@@ -57,12 +57,12 @@ ffmpeg -i input.ogv \
 
 ```
 
-# Niceness // Priority scheduling
+## Niceness // Priority scheduling
 ```
 nice -n 5 /bin/executable_name
 ```
 
-# Move up mutiple directories
+## Move up mutiple directories
 ```
 cdback() {
     local count=$1
@@ -78,7 +78,7 @@ cdback() {
 ## Dynamic log name
 
 ```
-alias tee_log ="tee ~/workspace/logs/output_$(date +"%Y-%m-%d_%H-%M-%S").log"
+alias tee_log='tee ~/workspace/logs/output_$(date +"%Y-%m-%d_%H-%M-%S").log'
 ```
 
 
