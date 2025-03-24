@@ -13,6 +13,7 @@ return {
       fzf = {},
     },
     defaults = {
+      debug = true, -- Enable DEBUG mode
       layout_strategy = "vertical",  -- Use horizontal layout for better preview
       layout_config = {
         preview_height = 0.7,  -- Adjust preview window width
@@ -43,14 +44,6 @@ return {
              end
       
              require("telescope.actions").close(prompt_bufnr)
-          end,
-
-          ["<C-f>"] = function(prompt_bufnr)
-             local ext = vim.fn.input("Filter by extension (e.g., qml, cpp, lua): ")
-             local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
-             picker:refresh(require("telescope.finders").new_oneshot_job({
-               "fd", "-e", ext
-             }), { reset_prompt = true })
           end,
         },
 	n = {

@@ -38,3 +38,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.foldenable = false     -- Do not fold by default
   end,
 })
+
+-- Enable modifiable for quick fix window
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "quickfix",
+  command = "setlocal modifiable"
+})
+
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "quickfix",
+  command = "setlocal nomodifiable"
+})
+
