@@ -15,13 +15,17 @@ return {
                filetypes = { "cpp", "c", "h" } 
        })
        
-       -- Enable QML LSP (qmlls)
-       lspconfig.qmlls.setup{
-           cmd = { "qmlls" },  -- Make sure to add qt install path to your env PATH 
-           filetypes = { "qml", "qmljs" },
-           root_dir = util.root_pattern(".qmlls.ini", "CMakeLists.txt")
-       }
-       
+       lspconfig.qmlls.setup({
+          cmd = { "qmlls" },  -- Ensure `qmlls` is in your system PATH
+          filetypes = { "qml", "qmljs" },
+          root_dir = function(fname)
+            local git_root = util.root_pattern(".git")(fname)
+            local cmake_root = util.root_pattern("CMakeLists.txt")(fname)
+            return git_root or cmake_root  -- Prefer `.git`, fallback to `CMakeLists.txt`
+          end,
+          single_file_support = true,
+       })
+
        lspconfig.cmake.setup({
          cmd = { "cmake-language-server" },
          filetypes = { "cmake" },
