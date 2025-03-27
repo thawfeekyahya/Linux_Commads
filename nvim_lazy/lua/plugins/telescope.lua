@@ -61,8 +61,8 @@ return {
         end
       },
       git_bcommits = {
-         use_git_root = false,  -- Ensure it works for the current file
-         git_command = { "git", "log", "--pretty=format:%h %s -- (%an) %ar", "--follow", "--"  }
+	 use_git_root = false,
+         --git_command = { "git", "log", "--pretty=fuller", "--stat", "--follow", "--" },				
       },
     }
   })
