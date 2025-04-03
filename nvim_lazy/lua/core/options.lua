@@ -19,3 +19,10 @@ vim.filetype.add({
 vim.diagnostic.config({
 	virtual_text = true, signs = true, update_in_insert = false 
 })
+
+
+-- Indendation settings for C++
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  command = "setlocal tabstop=4 shiftwidth=4 expandtab"
+})
