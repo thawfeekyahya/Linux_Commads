@@ -27,6 +27,7 @@ return {
   --Themes
   { "rose-pine/neovim", name = "rose-pine" },
   { "catppuccin/nvim", name = "catppuccin" },
+  { "ellisonleao/gruvbox.nvim"},
 
   { "nvim-lua/plenary.nvim"},
 
