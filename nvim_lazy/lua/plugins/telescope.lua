@@ -91,5 +91,26 @@ return {
   -- Telescope git log for current branch 
   vim.keymap.set("n", "<leader>gL", function() require("telescope.builtin").git_commits() end, { desc = "Git Commits" })
 
+-- Live grep by file extension
+   vim.keymap.set("n", "<leader>fG", function()
+     vim.ui.input({ prompt = "Enter file extensions to grep (e.g. cpp,h,qml): " }, function(input)
+       if input and input ~= "" then
+         local args = {}
+         for ext in string.gmatch(input, "[^,%s]+") do
+           table.insert(args, "--glob")
+           table.insert(args, "*." .. ext)
+         end
+
+         require("telescope.builtin").live_grep({
+           additional_args = function()
+             return args
+           end
+         })
+       else
+         print("No extension provided. Aborting filtered grep.")
+       end
+     end)
+   end, { desc = "Live grep by file extension(s)" })
+
 end,
 }
