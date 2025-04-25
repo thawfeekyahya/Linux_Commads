@@ -11,7 +11,7 @@ vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', { noremap = true, silent = tru
 
 
 -- yank variable under cursor to clipboard
-vim.keymap.set('n', '<leader>yv', '"+yiW', { desc = "Copy variable to clipboard" })
+vim.keymap.set('n', '<leader>yv', '"+yiw', { desc = "Copy variable to clipboard" })
 
 -- other mappings
 vim.keymap.set('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
