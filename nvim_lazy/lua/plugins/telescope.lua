@@ -5,7 +5,7 @@ return {
  config = function() 
   local actions = require("telescope.actions")
   local action_layout = require("telescope.actions.layout")  -- ✅ Corrected reference
-  
+  local action_state = require("telescope.actions.state")
   require('telescope').setup({
 
     extensions = {
@@ -35,7 +35,7 @@ return {
         i = {
           ["<C-p>"] = action_layout.toggle_preview, 
           ["<C-e>"] = function(prompt_bufnr)
-             local entry = require("telescope.actions.state").get_selected_entry()
+             local entry = action_state.get_selected_entry()
              local file_path = entry and entry.path or entry[1]
       
              if file_path then
@@ -43,15 +43,25 @@ return {
                  vim.fn.jobstart({ open_cmd, vim.fn.fnamemodify(file_path, ":h") }, { detach = true })
              end
       
-             require("telescope.actions").close(prompt_bufnr)
+             actions.close(prompt_bufnr)
           end,
         },
 	n = {
-              ["<Esc>"] = false,
-              ["q"] = require("telescope.actions").close,
-           }
-        },
+           ["<Esc>"] = false,
+           ["q"] = require("telescope.actions").close,
+
+	   ["<C-n>"] = function(prompt_bufnr)
+
+              local entry = action_state.get_selected_entry()
+              local filepath = entry.path or entry.filename
+
+              actions.close(prompt_bufnr)
+              require("nvim-tree.api").tree.open()
+              require("nvim-tree.api").tree.find_file(filepath)
+           end,
+	}
       },
+    },
   
     pickers = {  -- ✅ Moved `pickers` outside `defaults`
       find_files = {},
