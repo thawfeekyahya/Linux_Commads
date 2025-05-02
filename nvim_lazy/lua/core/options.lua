@@ -34,3 +34,13 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp" },
   command = "setlocal tabstop=4 shiftwidth=4 expandtab"
 })
+
+-- Show time after writting the file
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*",
+  callback = function()
+    local time = os.date("%I:%M %p")
+    --local file = vim.fn.expand("%:p")
+    vim.api.nvim_echo({{ "Wrote "  .. " at " .. time, "None" }}, false, {})
+  end,
+})
