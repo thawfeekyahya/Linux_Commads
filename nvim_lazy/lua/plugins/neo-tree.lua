@@ -38,6 +38,16 @@ return {
         width = 30,
         mappings = {
           ["<space>"] = "toggle_node",
+	  ["<C-e>"] = function(state)
+             local node = state.tree:get_node()
+             local path = node:get_id()
+             if path then
+               local open_cmd = vim.fn.has("mac") == 1 and "open"
+                 or vim.fn.has("unix") == 1 and "xdg-open"
+                 or vim.fn.has("win32") == 1 and "start"
+               vim.fn.jobstart({ open_cmd, path }, { detach = true })
+             end
+         end,
         },
       },
       filesystem = {
