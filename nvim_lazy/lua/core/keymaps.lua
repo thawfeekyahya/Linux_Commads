@@ -14,7 +14,6 @@ vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', { noremap = true, silent = tru
 vim.keymap.set('n', '<leader>yv', '"+yiw', { desc = "Copy variable to clipboard" })
 
 -- other mappings
-vim.keymap.set('n', '<Leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
 vim.keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true })
 
