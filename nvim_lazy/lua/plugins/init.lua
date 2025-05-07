@@ -1,14 +1,5 @@
 return {
   -- Nvim Tree
-  --{
-  --  "nvim-tree/nvim-tree.lua",
-  --   config = function()
-  --    require("nvim-tree").setup({
-  --      sync_root_with_cwd = true,
-  --    })
-  --  end,
-  --},
-
   {"s1n7ax/nvim-window-picker"},
   {'nvim-tree/nvim-web-devicons'},
   
