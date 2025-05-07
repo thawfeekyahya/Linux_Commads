@@ -4,6 +4,6 @@ return {
       require("nvim-tree").setup({
         sync_root_with_cwd = true,
       })
-      vim.keymap.set("n", "<leader>e", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
+      vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
    end,
 }
