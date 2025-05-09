@@ -9,7 +9,6 @@ vim.keymap.set('n', '<leader>yn', ':let @+ = expand("%:t")<CR>', { desc = "Copy 
 -- Paste without overwriting clipboard in Visual mode
 vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', { noremap = true, silent = true })
 
-
 -- yank variable under cursor to clipboard
 vim.keymap.set('n', '<leader>yv', '"+yiw', { desc = "Copy variable to clipboard" })
 
@@ -49,6 +48,11 @@ vim.api.nvim_create_autocmd("BufLeave", {
   command = "setlocal nomodifiable"
 })
 
+--Nvim Tree shortcuts
 vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
+
+
+--File shorcuts
+vim.keymap.set('n', '<leader>ts', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
 
