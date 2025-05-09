@@ -1,8 +1,11 @@
+--Remap page up / down to center align
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
+--Remap Terminal exit command
 vim.api.nvim_set_keymap('t', '<C-t>', '<C-\\><C-n>', { noremap = true, silent = true })
 
+--Yank file name / path
 vim.keymap.set('n', '<leader>yp', ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
 vim.keymap.set('n', '<leader>yn', ':let @+ = expand("%:t")<CR>', { desc = "Copy file name" })
 
@@ -56,3 +59,7 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
 --File shorcuts
 vim.keymap.set('n', '<leader>ts', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
 
+
+-- Remap split horizontal / vertical to change cursor focus
+vim.api.nvim_set_keymap('n', '<C-w>s', ':split<CR><C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
