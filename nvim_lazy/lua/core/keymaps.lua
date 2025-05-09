@@ -49,3 +49,5 @@ vim.api.nvim_create_autocmd("BufLeave", {
   command = "setlocal nomodifiable"
 })
 
+vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
+
