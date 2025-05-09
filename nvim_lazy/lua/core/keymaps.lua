@@ -50,4 +50,5 @@ vim.api.nvim_create_autocmd("BufLeave", {
 })
 
 vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
 
