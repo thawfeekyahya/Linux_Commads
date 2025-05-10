@@ -9,6 +9,18 @@ return {
     end,
   },
 
+  --Comment.nvim
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+    keys = {
+      { "gcc", mode = "n", desc = "Toggle comment line" },
+      { "gc", mode = { "n", "v" }, desc = "Toggle comment block" },
+    },
+  },
+
   {"s1n7ax/nvim-window-picker"},
   {'nvim-tree/nvim-web-devicons'},
   
