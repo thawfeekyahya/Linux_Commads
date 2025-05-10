@@ -21,6 +21,14 @@ return {
     },
   },
 
+  -- Vim Exchange text
+  {
+     "tommcdo/vim-exchange",
+     keys = {
+       { "cx", mode = { "n", "v" }, desc = "Exchange text" },
+     }
+  },
+
   {"s1n7ax/nvim-window-picker"},
   {'nvim-tree/nvim-web-devicons'},
   
