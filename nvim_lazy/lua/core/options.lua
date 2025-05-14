@@ -32,7 +32,10 @@ vim.filetype.add({
 
 
 vim.diagnostic.config({
-	virtual_text = true, signs = true, update_in_insert = false 
+	virtual_text = true, 
+  signs = true, 
+  update_in_insert = false ,
+  underline = false,     -- disables squiggly lines
 })
 
 -- Indendation settings for C++
