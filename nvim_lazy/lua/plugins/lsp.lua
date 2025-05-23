@@ -11,7 +11,7 @@ return {
        local util = require('lspconfig.util')
        
        lspconfig.clangd.setup({ 
-       	cmd = { "clangd", "--background-index" },
+               cmd = { "clangd", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu" },
                filetypes = { "cpp", "c", "h" } 
        })
        
@@ -54,6 +54,9 @@ return {
            end
          end)
        end, { desc = "Switch between source and header" })
+
+      -- auto fix header include
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
     end,
   }
 }
