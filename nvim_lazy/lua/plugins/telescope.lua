@@ -116,6 +116,28 @@ return {
     end
 
     -- ========================================================================================================================
+    -- Open file in the system
+    local function open_in_system(prompt_bufnr)
+       local entry = action_state.get_selected_entry()
+       local file_path = entry and entry.path or entry[1]
+       if file_path then
+          local open_cmd = vim.fn.has("mac") == 1 and "open" or "xdg-open"
+          vim.fn.jobstart({ open_cmd, vim.fn.fnamemodify(file_path, ":h") }, { detach = true })
+       end
+       actions.close(prompt_bufnr)
+    end
+
+    -- Open file in the tree
+    local function open_file_in_tree(prompt_bufnr)
+       local entry = action_state.get_selected_entry()
+       local filepath = entry.path or entry.filename
+       actions.close(prompt_bufnr)
+       require("nvim-tree.api").tree.open()
+       require("nvim-tree.api").tree.find_file(filepath)
+    end
+
+    --================================================================================================================================================= 
+
     require('telescope').setup({
       extensions = {
         git_worktree = {},
@@ -135,26 +157,12 @@ return {
         mappings = {
           i = {
             ["<C-p>"] = action_layout.toggle_preview,
-            ["<C-e>"] = function(prompt_bufnr)
-              local entry = action_state.get_selected_entry()
-              local file_path = entry and entry.path or entry[1]
-              if file_path then
-                local open_cmd = vim.fn.has("mac") == 1 and "open" or "xdg-open"
-                vim.fn.jobstart({ open_cmd, vim.fn.fnamemodify(file_path, ":h") }, { detach = true })
-              end
-              actions.close(prompt_bufnr)
-            end,
+            ["<C-e>"] = open_in_system,
           },
           n = {
             ["<Esc>"] = false,
             ["q"] = actions.close,
-            ["<C-n>"] = function(prompt_bufnr)
-              local entry = action_state.get_selected_entry()
-              local filepath = entry.path or entry.filename
-              actions.close(prompt_bufnr)
-              require("nvim-tree.api").tree.open()
-              require("nvim-tree.api").tree.find_file(filepath)
-            end,
+            ["<C-n>"] = open_file_in_tree,
           }
         },
       },
