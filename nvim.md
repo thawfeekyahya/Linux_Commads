@@ -26,5 +26,13 @@ sudo apt install fonts-powerline fonts-firacode
 
 ```
 
+## Nerd Fonts 
+
+https://www.nerdfonts.com/font-downloads 
+
+```
+cp FiraCodeNerdFontMono-Regular.ttf ~/.local/share/fonts/
+```
+
 
 
