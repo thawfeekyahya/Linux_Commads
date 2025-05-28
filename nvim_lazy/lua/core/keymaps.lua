@@ -63,3 +63,17 @@ vim.keymap.set('n', '<leader>ts', ':tab split<CR>', { desc = 'Open current buffe
 -- Remap split horizontal / vertical to change cursor focus
 vim.api.nvim_set_keymap('n', '<C-w>s', ':split<CR><C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
+
+
+
+-- Switch between fold syntax and indent methods
+vim.keymap.set("n", "<leader>fm", function()
+  local current = vim.opt.foldmethod:get()
+  if current == "indent" then
+    vim.opt.foldmethod = "syntax"
+    print("foldmethod=syntax")
+  else
+    vim.opt.foldmethod = "indent"
+    print("foldmethod=indent")
+  end
+end, { desc = "Toggle foldmethod between indent and syntax" })
