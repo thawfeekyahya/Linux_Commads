@@ -67,7 +67,7 @@ vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, si
 
 
 -- Switch between fold syntax and indent methods
-vim.keymap.set("n", "<leader>fm", function()
+vim.keymap.set("n", "<leader>tf", function()
   local current = vim.opt.foldmethod:get()
   if current == "indent" then
     vim.opt.foldmethod = "syntax"
