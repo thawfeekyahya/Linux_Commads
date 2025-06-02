@@ -32,13 +32,13 @@ vim.keymap.set("n", "<leader>sw", function()
 end, { desc = "Switch between source and header" })
 
 -- Enable folding for QML file type
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "qml", "cpp", "javascript" }, -- Multiple file types
-  callback = function()
-    vim.opt_local.foldmethod = "indent"  -- Set indent-based folding
-    vim.opt_local.foldenable = false     -- Do not fold by default
-  end,
-})
+--vim.api.nvim_create_autocmd("FileType", {
+--  pattern = { "qml", "cpp", "javascript" }, -- Multiple file types
+--  callback = function()
+--    vim.opt_local.foldmethod = "indent"  -- Set indent-based folding
+--    vim.opt_local.foldenable = false     -- Do not fold by default
+--  end,
+--})
 
 -- Enable modifiable for quick fix window
 vim.api.nvim_create_autocmd("BufWinEnter", {
