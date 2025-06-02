@@ -57,8 +57,8 @@ vim.api.nvim_set_keymap('n', '<C-w>s', ':split<CR><C-w>j', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
 
 
--- Disable folding globally
-vim.opt.foldenable = false
+-- Enable folding globally
+vim.opt.foldenable = true 
 
 -- Switch between fold manual,syntax,indent methods LOCALLY 
 local fold_methods = { "manual", "indent", "syntax" }
