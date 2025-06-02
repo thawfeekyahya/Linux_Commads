@@ -31,14 +31,6 @@ vim.keymap.set("n", "<leader>sw", function()
   end)
 end, { desc = "Switch between source and header" })
 
--- Enable folding for QML file type
---vim.api.nvim_create_autocmd("FileType", {
---  pattern = { "qml", "cpp", "javascript" }, -- Multiple file types
---  callback = function()
---    vim.opt_local.foldmethod = "indent"  -- Set indent-based folding
---    vim.opt_local.foldenable = false     -- Do not fold by default
---  end,
---})
 
 -- Enable modifiable for quick fix window
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -65,15 +57,22 @@ vim.api.nvim_set_keymap('n', '<C-w>s', ':split<CR><C-w>j', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
 
 
+-- Disable folding globally
+vim.opt.foldenable = false
 
--- Switch between fold syntax and indent methods
+-- Switch between fold manual,syntax,indent methods LOCALLY 
+local fold_methods = { "manual", "indent", "syntax" }
+
 vim.keymap.set("n", "<leader>tf", function()
-  local current = vim.opt.foldmethod:get()
-  if current == "indent" then
-    vim.opt.foldmethod = "syntax"
-    print("foldmethod=syntax")
-  else
-    vim.opt.foldmethod = "indent"
-    print("foldmethod=indent")
+  local current = vim.opt_local.foldmethod:get()
+  local next_index = 1
+  for i, method in ipairs(fold_methods) do
+    if method == current then
+      next_index = i % #fold_methods + 1
+      break
+    end
   end
-end, { desc = "Toggle foldmethod between indent and syntax" })
+  local next_method = fold_methods[next_index]
+  vim.opt_local.foldmethod = next_method
+  vim.notify("foldmethod = " .. next_method, vim.log.levels.INFO)
+end, { desc = "Cycle foldmethod" })
