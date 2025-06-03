@@ -53,3 +53,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     vim.api.nvim_echo({{ "Wrote "  .. " at " .. time, "None" }}, false, {})
   end,
 })
+
+
+-- Ignore case when searching
+vim.opt.ignorecase = true  -- Ignore case in search
+vim.opt.smartcase = true   -- But be smart: if you type uppercase, match case
