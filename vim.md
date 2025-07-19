@@ -59,15 +59,15 @@ use norm command after selecting using the visual select using v
 
 ### Incrementing
 
-10 \<C\-a\>  ->  Increments the number under the cursor by 10
+10 \<Ctrl+a\>  ->  Increments the number under the cursor by 10
 
-vg \<C\-a\> -> Increment all numbers in a visual selection by a specific amount:
+vg \<Ctrl+a\> -> Increment all numbers in a visual selection by a specific amount:
 
 ## Decrementing
 
-10 \<C\-x\> ->  Decrements the number under the cursor by 10
+10 \<Ctrl+x\> ->  Decrements the number under the cursor by 10
 
-vg \<C-\x\> ->  Decrement all numbers in a visual selection by a specific amount
+vg \<Ctrl+x\> ->  Decrement all numbers in a visual selection by a specific amount
 
 
 ### Modifying selection after visual selection
