@@ -6,17 +6,25 @@ vim.opt.cursorline = true
 vim.opt.foldcolumn = "1"
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.cmd("filetype plugin indent on")
 vim.o.winbar = "%=%{winnr()} %f"
 
--- Use spaces instead of tabs
+
+-- ====================================================================================================Set indentation options
+vim.cmd("filetype plugin indent on")
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
-vim.opt.expandtab = true   -- This makes Vim insert spaces instead of a tab character
-vim.opt.shiftwidth = 4     -- Number of spaces to use for indentation (adjust to your preference)
-vim.opt.tabstop = 4       -- Number of spaces a tab represents (adjust to your preference)
-vim.opt.softtabstop = 4
+vim.opt.expandtab = true -- This makes Vim insert spaces instead of a tab character
+
+vim.opt.shiftwidth = 4      -- Number of spaces per indent
+vim.opt.tabstop = 4         -- Tab character width
+vim.opt.softtabstop = 4     -- Tab and backspace behavior in insert mode
+
+-- Optional: Keybindings to auto-indent
+vim.keymap.set("n", "<leader>=", "gg=G``", { desc = "Indent entire buffer" })
+vim.keymap.set("v", "=", "=gv", { desc = "Indent visual selection" })
+
+-- ==================================================================================================== 
 
 -- Charcters Markings
 vim.opt.listchars = {
