@@ -26,6 +26,11 @@ vim.keymap.set("v", "=", "=gv", { desc = "Indent visual selection" })
 
 -- ==================================================================================================== 
 
+-- switch between buffers
+ vim.keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true, noremap = true, desc = "Next buffer" })
+      -- Previous buffer
+      vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true, noremap = true, desc = "Previous buffer" })
+
 -- Charcters Markings
 vim.opt.listchars = {
   tab = '▸ ',
