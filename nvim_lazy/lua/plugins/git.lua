@@ -15,11 +15,6 @@ return {
       linehl = false,
       word_diff = false,
 
-      current_line_blame = true, -- optional: shows blame info inline
-      current_line_blame_opts = {
-        delay = 500,
-        virt_text_pos = "eol", -- "eol" instead of "right_align"
-      },
     })
 
     -- Git shortcuts
