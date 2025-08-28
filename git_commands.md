@@ -16,7 +16,7 @@ for f in $(git ls-files); do git mv $f /home/thyahya/Projects/carbon-ui/uikit/ui
 ## Git Adding a new worktree
 https://git-scm.com/docs/git-worktree 
 ```
-git worktree add branch path
+git worktree add path branch
 ```
 
 ## Git Worktree with origin/remotes
