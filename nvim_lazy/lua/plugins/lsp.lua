@@ -32,6 +32,13 @@ return {
          root_dir = require("lspconfig.util").root_pattern("CMakeLists.txt", ".git"),
        })
        
+       lspconfig.zls.setup({
+         cmd = { "zls" },
+         filetypes = { "zig" },
+         root_dir = require("lspconfig.util").root_pattern("build.zig", ".git"),
+         single_file_support = true,
+       })
+
        -- Toggle LSP Warnings
        vim.keymap.set("n", "<leader>tw", function()
          local current = vim.diagnostic.config().virtual_text
