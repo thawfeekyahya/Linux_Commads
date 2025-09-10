@@ -49,7 +49,7 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
 
 
 --File shorcuts
-vim.keymap.set('n', '<leader>ts', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
+vim.keymap.set('n', '<C-w>t', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
 
 
 -- Remap split horizontal / vertical to change cursor focus
