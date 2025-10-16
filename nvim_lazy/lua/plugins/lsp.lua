@@ -62,8 +62,11 @@ return {
          end)
        end, { desc = "Switch between source and header" })
 
+
       -- auto fix header include
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+      vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "LSP Rename Symbol" })
+      vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "LSP Format Buffer" })
     end,
   }
 }
