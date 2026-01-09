@@ -34,7 +34,7 @@ vim.keymap.set("v", "=", "=gv", { desc = "Indent visual selection" })
 -- Charcters Markings
 vim.opt.listchars = {
   tab = '▸ ',
-  trail = '^',
+  trail = '■',
   space = '·',
 }
 
@@ -72,3 +72,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -- Ignore case when searching
 vim.opt.ignorecase = true  -- Ignore case in search
 vim.opt.smartcase = true   -- But be smart: if you type uppercase, match case
+
+
