@@ -1,5 +1,5 @@
 -- Set Default Theme
-vim.cmd("colorscheme desert")
+--vim.cmd("colorscheme desert")
 
 vim.opt.tags = { "./tags", "tags" }
 vim.opt.cursorline = true
