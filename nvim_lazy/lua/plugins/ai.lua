@@ -28,6 +28,7 @@ return {
     {
         "github/copilot.vim"
     },
+<<<<<<< Updated upstream
         {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
@@ -39,4 +40,10 @@ return {
         },
     },
 
+=======
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      dependencies = { "github/copilot.vim" }
+    }
+>>>>>>> Stashed changes
 }
