@@ -96,6 +96,12 @@ return {
       vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "LSP Rename Symbol" })
       vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "LSP Format Buffer" })
 
+      -- Go to definition, references, etc.
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find References/Usages" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+
     end,
   }
 }
