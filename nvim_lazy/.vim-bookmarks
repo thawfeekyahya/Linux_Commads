@@ -1,0 +1,3 @@
+let l:bm_file_version = 1
+let l:bm_sessions = {'default': {'/Users/YAHYATH/Project/gen20x_3D/gen20x-asset-tools/MBglTFViewer/sources/qml/layers/Layer_OffRoad_SingleWheelAdjust_Car.qml': [{'sign_idx': 9500, 'line_nr': 63, 'content': '                model.getAnimation("VisibleTireMaskRightFront").time = 1;'},{'sign_idx': 9501, 'line_nr': 144, 'content': '                    color = smoothstep(0.0,1.0,fTexCoords.y)* 0.09;'},],}}
+let l:bm_current_session = 'default'

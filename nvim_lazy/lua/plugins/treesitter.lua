@@ -14,6 +14,7 @@ return {
       "cpp",
       "python",
       "javascript",
+      "kotlin",
     },
 
     auto_install = true,

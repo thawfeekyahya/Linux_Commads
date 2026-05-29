@@ -55,6 +55,16 @@ return {
       vim.lsp.enable("zls")
 
       -- ========================
+      -- kotlin_language_server
+      -- ========================
+      vim.lsp.config("kotlin_language_server", {
+        cmd = { "kotlin-language-server" },
+        filetypes = { "kotlin" },
+        root_dir = util.root_pattern("settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts", "pom.xml", ".git"),
+      })
+      vim.lsp.enable("kotlin_language_server")
+
+      -- ========================
       -- Keymaps & Utilities
       -- ========================
 
