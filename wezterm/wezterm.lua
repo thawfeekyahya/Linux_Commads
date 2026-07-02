@@ -6,14 +6,14 @@ local config = wezterm.config_builder()
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
-local CMD = is_macos and "CMD" or "CTRL|SHIFT"
-local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
+local CMD = is_macos and "CMD" or "CTRL"
+local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|SHIFT"
 
 config.initial_cols = 120
 config.initial_rows = 28
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 20
+config.font_size = 15
 
 -- Available color schemes:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -27,6 +27,12 @@ config.keys = {
     key = "t",
     mods = CMD,
     action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+  },
+
+  {
+    key = "w",
+    mods = CMD,
+    action = wezterm.action.CloseCurrentPane { confirm = false },
   },
 
   {
