@@ -7,7 +7,7 @@ local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
 local CMD = is_macos and "CMD" or "CTRL|SHIFT"
-local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
+local CMD_SHIFT = is_macos and "CMD|SHIFT" or "SHIFT|ALT"
 
 config.initial_cols = 120
 config.initial_rows = 28
@@ -50,6 +50,20 @@ config.keys = {
   ----------------------------------------------------------------------
   -- Split panes
   ----------------------------------------------------------------------
+  -- disable default keybinding for CMD+d
+  {
+    key = "d",
+    mods = CMD,
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+
+  {
+    key = "d",
+    mods = 'NONE',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+
+  -- Start key bindings for spane splitting
   {
     key = "d",
     mods = CMD,
