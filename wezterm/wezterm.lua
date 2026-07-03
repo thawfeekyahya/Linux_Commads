@@ -6,8 +6,8 @@ local config = wezterm.config_builder()
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
-local CMD = is_macos and "CMD" or "CTRL"
-local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|SHIFT"
+local CMD = is_macos and "CMD" or "CTRL|SHIFT"
+local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
 
 config.initial_cols = 120
 config.initial_rows = 28
