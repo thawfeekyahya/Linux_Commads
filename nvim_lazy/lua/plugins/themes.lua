@@ -7,7 +7,7 @@ local M = {
     config = function()
       -- Configure the theme options here if needed
       require("catppuccin").setup({
-        flavour = "frappe", -- latte, frappe, macchiato, mocha
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
         transparent_background = false,
         integrations = {
           cmp = true,
