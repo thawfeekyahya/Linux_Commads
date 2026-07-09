@@ -1,5 +1,3 @@
--- Set Default Theme
---vim.cmd("colorscheme desert")
 vim.g.copilot_auth_provider_url = "https://mercedes-benz.ghe.com/"
 
 vim.opt.tags = { "./tags", "tags" }
