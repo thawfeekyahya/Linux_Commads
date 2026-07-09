@@ -1,0 +1,14 @@
+# Set vim bindings
+
+set -o vi
+
+# Set cdback 
+
+cdback() {
+    local count=$1
+    local path=""
+    for ((i=0; i<count; i++)); do
+        path="${path}../"
+    done
+    cd "$path"
+}
