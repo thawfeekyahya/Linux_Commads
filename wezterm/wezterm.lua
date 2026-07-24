@@ -36,17 +36,16 @@ config.keys = {
   },
 
   {
-    key = "[",
+    key = is_macos and "[" or "{",
     mods = CMD,
     action = wezterm.action.ActivateTabRelative(-1),
   },
 
   {
-    key = "]",
+    key = is_macos and "]" or "}",
     mods = CMD,
     action = wezterm.action.ActivateTabRelative(1),
   },
-
   ----------------------------------------------------------------------
   -- Split panes
   ----------------------------------------------------------------------
@@ -68,14 +67,6 @@ config.keys = {
     key = "d",
     mods = CMD,
     action = wezterm.action.SplitHorizontal {
-      domain = "CurrentPaneDomain",
-    },
-  },
-
-  {
-    key = "d",
-    mods = CMD_SHIFT,
-    action = wezterm.action.SplitVertical {
       domain = "CurrentPaneDomain",
     },
   },
