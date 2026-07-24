@@ -85,3 +85,8 @@ alias tee_log='tee ~/workspace/logs/output_$(date +"%Y-%m-%d_%H-%M-%S").log'
 
 set -o vi
 
+# Set window title
+
+set_title() {
+    printf "\033]0;%s\a" "$*"
+}
