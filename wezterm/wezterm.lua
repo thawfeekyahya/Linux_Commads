@@ -13,7 +13,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 15
+config.font_size = 14
 
 -- Available color schemes:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
