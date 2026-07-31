@@ -43,6 +43,10 @@ vim.api.nvim_create_autocmd("BufLeave", {
   command = "setlocal nomodifiable"
 })
 
+-- Quickfix navigation shortcuts
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next Quickfix" })
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous Quickfix" })
+
 --Nvim Tree shortcuts
 vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
@@ -63,6 +67,7 @@ vim.opt.foldenable = true
 -- Switch between fold manual,syntax,indent methods LOCALLY 
 local fold_methods = { "manual", "indent", "syntax" }
 
+-- Toggle fold method for current buffer
 vim.keymap.set("n", "<leader>tf", function()
   local current = vim.opt_local.foldmethod:get()
   local next_index = 1
