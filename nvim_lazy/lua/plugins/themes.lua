@@ -18,11 +18,11 @@ local M = {
           mini = true,
         },
       })
+      -- Apply Default colorscheme
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
 
--- Apply Default colorscheme 
-vim.cmd.colorscheme("catppuccin")
 
 return M
