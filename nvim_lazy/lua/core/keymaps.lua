@@ -47,6 +47,11 @@ vim.api.nvim_create_autocmd("BufLeave", {
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next Quickfix" })
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous Quickfix" })
 
+-- Clear quickfix list
+vim.keymap.set("n", "<leader>qx", function()
+    vim.fn.setqflist({}, "r")
+end, { desc = "Clear quickfix list" })
+
 --Nvim Tree shortcuts
 vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal current file in NvimTree" })
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
