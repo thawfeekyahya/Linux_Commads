@@ -183,10 +183,16 @@ return {
     require("telescope").load_extension("git_worktree")
 
     -- Keymaps
+
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
     vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
     vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find Buffers" })
     vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find Recent Files" })
+    -- search only current buffer
+    vim.keymap.set("n", "<leader>/", function()
+        require("telescope.builtin").current_buffer_fuzzy_find()
+    end, { desc = "Search current buffer" })
+
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Search Symbols" })
     vim.keymap.set("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Colorscheme Picker" })
     vim.keymap.set("n", "rs", "<cmd>Telescope lsp_references<CR>", { desc = "Find function references" })
