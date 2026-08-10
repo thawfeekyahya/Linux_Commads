@@ -24,5 +24,10 @@ return {
     vim.keymap.set("n", "<leader>gR", ":Gitsigns reset_buffer<CR>", { desc = "Git reset current file" })
     vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff (Current vs HEAD)" })
     vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Git Blame" })
+
+    -- Navigate Git changes
+    vim.keymap.set("n", "]c", function() require("gitsigns").nav_hunk("next") end, { desc = "Next Git Change" })
+    vim.keymap.set("n", "[c", function() require("gitsigns").nav_hunk("prev") end, { desc = "Previous Git Change" })
+
   end,
 }
