@@ -5,6 +5,11 @@ return {
   config = function()
     local lualine = require("lualine")
 
+    -- Highlight group for tab numbers
+    vim.api.nvim_set_hl(0, "TabLineNumber", {
+      bold = true,
+    })
+
     -- Name the current tab
     vim.api.nvim_create_user_command("TabName", function(opts)
       vim.t[vim.fn.tabpagenr()].name = opts.args
@@ -35,16 +40,20 @@ return {
           end
         end
 
-        -- Highlight the current tab
+        -- Highlight current tab
         if i == current then
           table.insert(
             tabs,
-            "%#TabLineSel# " .. name .. " "
+            "%#TabLineSel# " .. name ..
+            " %#TabLineNumber# " .. i ..
+            " "
           )
         else
           table.insert(
             tabs,
-            "%#TabLine# " .. name .. " "
+            "%#TabLine# " .. name ..
+            " %#TabLineNumber# " .. i ..
+            " "
           )
         end
       end
@@ -55,17 +64,19 @@ return {
     lualine.setup({
       options = {
         theme = "auto",
+
         section_separators = {
           left = "",
           right = "",
         },
+
         component_separators = {
           left = " ",
           right = " ",
         },
       },
 
-      -- Your existing statusline
+      -- Existing statusline
       sections = {
         lualine_c = { "filename" },
         lualine_x = {
