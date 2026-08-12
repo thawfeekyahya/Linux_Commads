@@ -90,3 +90,16 @@ set -o vi
 set_title() {
     printf "\033]0;%s\a" "$*"
 }
+
+# Copy Current Working directory to clipboard
+
+## Linux
+```
+pwd | xclip -selection clipboard
+xclip -selection clipboard -o
+```
+
+```
+pwd | pbcopy
+pbpaste
+```
