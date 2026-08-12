@@ -12,25 +12,33 @@ return {
 
     -- Name the current tab
     vim.api.nvim_create_user_command("TabName", function(opts)
-      vim.t[vim.fn.tabpagenr()].name = opts.args
+      local tabpages = vim.api.nvim_list_tabpages()
+      local current_tab = vim.fn.tabpagenr()
+      local tabpage_id = tabpages[current_tab]
+
+      vim.t[tabpage_id].name = opts.args
+
       lualine.refresh()
     end, {
       nargs = 1,
     })
 
-    -- Generate tabline showing all tabs
+    -- Generate tabline
     local function tabline()
       local tabs = {}
+      local tabpages = vim.api.nvim_list_tabpages()
       local current = vim.fn.tabpagenr()
-      local total = vim.fn.tabpagenr("$")
+      local total = #tabpages
 
       for i = 1, total do
-        local name = vim.t[i].name
+        local tabpage_id = tabpages[i]
+        local name = vim.t[tabpage_id].name
 
-        -- If tab has no custom name, use the current buffer name
+        -- If tab has no custom name, use current buffer name
         if not name or name == "" then
           local buflist = vim.fn.tabpagebuflist(i)
           local bufnr = buflist[1]
+
           name = vim.fn.bufname(bufnr)
 
           if name == "" then
@@ -40,20 +48,21 @@ return {
           end
         end
 
-        -- Highlight current tab
+        -- Tab number
+        local label = name .. " "
+
+        -- Current tab
         if i == current then
           table.insert(
             tabs,
-            "%#TabLineSel# " .. name ..
-            " %#TabLineNumber# " .. i ..
-            " "
+            "%#TabLineSel# " .. label ..
+            "%#TabLineNumber# " .. i .. " "
           )
         else
           table.insert(
             tabs,
-            "%#TabLine# " .. name ..
-            " %#TabLineNumber# " .. i ..
-            " "
+            "%#TabLine# " .. label ..
+            "%#TabLineNumber# " .. i .. " "
           )
         end
       end
@@ -76,7 +85,6 @@ return {
         },
       },
 
-      -- Existing statusline
       sections = {
         lualine_c = { "filename" },
         lualine_x = {
@@ -86,7 +94,6 @@ return {
         },
       },
 
-      -- Tabline
       tabline = {
         lualine_a = {
           tabline,
