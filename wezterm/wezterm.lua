@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
-local CMD = is_macos and "CMD" or "CTRL|ALT"
+local CMD = is_macos and "CMD" or "SUPER"
 
 -- Set leader key (CTRL+a avoids macOS intercepting CMD+a as "Select All")
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
@@ -16,7 +16,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 20
+config.font_size = is_macos and 20 or 14
 
 -- Available color schemes:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
