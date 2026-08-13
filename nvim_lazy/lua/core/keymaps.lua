@@ -57,8 +57,10 @@ vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", { desc = "Reveal curre
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
 
 
---File shorcuts
+--Tab management shortcuts
 vim.keymap.set('n', '<C-w>t', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
+vim.keymap.set('n', ']t', ':tabnext<CR>', { desc = 'Next Tab' })
+vim.keymap.set('n', '[t', ':tabprevious<CR>', { desc = 'Previous Tab' })
 
 
 -- Remap split horizontal / vertical to change cursor focus
