@@ -2,16 +2,16 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-
--- Set Space as your leader key
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
-
 -- Detect OS
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
 local CMD = is_macos and "CMD" or "CTRL|SHIFT"
 local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
+
+-- Set Space as your leader key
+config.leader = { key = "a", mods = CMD, timeout_milliseconds = 1000 }
+
 
 config.initial_cols = 120
 config.initial_rows = 28
@@ -92,11 +92,12 @@ config.keys = {
   },
 }
 
---- Load and apply your isolated sessions configuration
+-- Load modules
 local workspaces = require("workspaces")
-workspaces.apply_to_keys(config.keys)
-
 local resurrect = require("resurrect")
+
+-- Apply mappings from both modules
+workspaces.apply_to_keys(config.keys)
 resurrect.apply_to_keys(config.keys)
 
 return config
