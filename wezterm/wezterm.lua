@@ -1,23 +1,27 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
+
+
+-- Set Space as your leader key
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- Detect OS
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
 local CMD = is_macos and "CMD" or "CTRL|SHIFT"
-local CMD_SHIFT = is_macos and "CMD|SHIFT" or "SHIFT|ALT"
+local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
 
 config.initial_cols = 120
 config.initial_rows = 28
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 14
+config.font_size = 20
 
 -- Available color schemes:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = 'Catppuccin Frappe'
 
 config.keys = {
   ----------------------------------------------------------------------
@@ -30,43 +34,32 @@ config.keys = {
   },
 
   {
-    key = "w",
-    mods = CMD,
-    action = wezterm.action.CloseCurrentPane { confirm = false },
-  },
-
-  {
-    key = is_macos and "[" or "{",
+    key = "[",
     mods = CMD,
     action = wezterm.action.ActivateTabRelative(-1),
   },
 
   {
-    key = is_macos and "]" or "}",
+    key = "]",
     mods = CMD,
     action = wezterm.action.ActivateTabRelative(1),
   },
+
   ----------------------------------------------------------------------
   -- Split panes
   ----------------------------------------------------------------------
-  -- disable default keybinding for CMD+d
-  {
-    key = "d",
-    mods = CMD,
-    action = wezterm.action.DisableDefaultAssignment,
-  },
-
-  {
-    key = "d",
-    mods = 'NONE',
-    action = wezterm.action.DisableDefaultAssignment,
-  },
-
-  -- Start key bindings for spane splitting
   {
     key = "d",
     mods = CMD,
     action = wezterm.action.SplitHorizontal {
+      domain = "CurrentPaneDomain",
+    },
+  },
+
+  {
+    key = "d",
+    mods = CMD_SHIFT,
+    action = wezterm.action.SplitVertical {
       domain = "CurrentPaneDomain",
     },
   },
@@ -98,5 +91,12 @@ config.keys = {
     action = wezterm.action.ActivatePaneDirection("Right"),
   },
 }
+
+--- Load and apply your isolated sessions configuration
+local workspaces = require("workspaces")
+workspaces.apply_to_keys(config.keys)
+
+local resurrect = require("resurrect")
+resurrect.apply_to_keys(config.keys)
 
 return config
