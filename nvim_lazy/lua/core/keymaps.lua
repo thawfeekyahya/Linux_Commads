@@ -65,8 +65,10 @@ vim.keymap.set('n', '[t', ':tabprevious<CR>', { desc = 'Previous Tab' })
 
 
 -- Remap split horizontal / vertical to change cursor focus
-vim.api.nvim_set_keymap('n', '<C-w>s', ':split<CR><C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-w>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>S', ':split<CR><C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>V', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>s', ':new<CR><C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>v', ':vnew<CR><C-w>l', { noremap = true, silent = true })
 
 
 -- Enable folding globally

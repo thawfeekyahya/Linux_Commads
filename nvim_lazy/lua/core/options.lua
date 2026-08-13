@@ -19,6 +19,10 @@ vim.opt.shiftwidth = 4      -- Number of spaces per indent
 vim.opt.tabstop = 4         -- Tab character width
 vim.opt.softtabstop = 4     -- Tab and backspace behavior in insert mode
 
+-- Window split behavior
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 -- Optional: Keybindings to auto-indent
 vim.keymap.set("n", "<leader>=", "gg=G``", { desc = "Indent entire buffer" })
 vim.keymap.set("v", "=", "=gv", { desc = "Indent visual selection" })

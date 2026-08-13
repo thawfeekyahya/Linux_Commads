@@ -16,7 +16,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = is_macos and 20 or 14
+config.font_size = is_macos and 18 or 14
 
 -- Available color schemes:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
