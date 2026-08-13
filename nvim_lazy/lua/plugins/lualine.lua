@@ -12,12 +12,9 @@ return {
 
     -- Name the current tab
     vim.api.nvim_create_user_command("TabName", function(opts)
-      local tabpages = vim.api.nvim_list_tabpages()
-      local current_tab = vim.fn.tabpagenr()
-      local tabpage_id = tabpages[current_tab]
-
-      vim.t[tabpage_id].name = opts.args
-
+      -- Setting vim.t.name directly on the current tabpage binds it 
+      -- accurately to Neovim's session serialization
+      vim.t.name = opts.args
       lualine.refresh()
     end, {
       nargs = 1,
@@ -32,10 +29,12 @@ return {
 
       for i = 1, total do
         local tabpage_id = tabpages[i]
-        local name = vim.t[tabpage_id].name
 
-        -- If tab has no custom name, use current buffer name
-        if not name or name == "" then
+        -- Safely retrieve the custom tab name from tab variables
+        local ok, name = pcall(vim.api.nvim_tabpage_get_var, tabpage_id, "name")
+
+        -- If tab has no custom name, fallback to current buffer name
+        if not ok or not name or name == "" then
           local buflist = vim.fn.tabpagebuflist(i)
           local bufnr = buflist[1]
 
@@ -48,10 +47,10 @@ return {
           end
         end
 
-        -- Tab number
+        -- Tab number label
         local label = name .. " "
 
-        -- Current tab
+        -- Current active tab vs inactive tabs
         if i == current then
           table.insert(
             tabs,

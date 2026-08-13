@@ -73,3 +73,16 @@ vim.opt.ignorecase = true  -- Ignore case in search
 vim.opt.smartcase = true   -- But be smart: if you type uppercase, match case
 
 
+-- Ensure tabpages and tab variables (vim.t) are serialized into Neovim session files
+vim.opt.sessionoptions = {
+  "buffers",
+  "curdir",
+  "folds",
+  "help",
+  "tabpages",
+  "winsize",
+  "terminal",
+  "localoptions"
+}
+
+

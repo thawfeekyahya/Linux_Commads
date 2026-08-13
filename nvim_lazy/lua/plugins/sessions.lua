@@ -4,8 +4,10 @@ return {
   dependencies = { "nvim-telescope/telescope.nvim" },
 
   keys = {
-    { "wl", "<cmd>AutoSession search<CR>", desc = "List sessions" },
-    { "ws", "<cmd>AutoSession save<CR>", desc = "Save session" },
+    { "<leader>sl", "<cmd>AutoSession search<CR>", desc = "List sessions" },
+    { "<leader>ss", "<cmd>AutoSession save<CR>", desc = "Save session" },
+    { "<leader>sd", "<cmd>AutoSession delete<CR>", desc = "Delete current session" },
+    { "<leader>sD", "<cmd>AutoSession deletePicker<CR>", desc = "Delete session (picker)" },
   },
 
   config = function()
