@@ -7,10 +7,9 @@ local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
 local CMD = is_macos and "CMD" or "CTRL|SHIFT"
-local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
 
--- Set Space as your leader key
-config.leader = { key = "a", mods = CMD, timeout_milliseconds = 2000 }
+-- Set leader key (CTRL+a avoids macOS intercepting CMD+a as "Select All")
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
 
 config.initial_cols = 120
@@ -57,8 +56,8 @@ config.keys = {
   },
 
   {
-    key = "d",
-    mods = CMD_SHIFT,
+    key = "D",
+    mods = CMD,
     action = wezterm.action.SplitVertical {
       domain = "CurrentPaneDomain",
     },

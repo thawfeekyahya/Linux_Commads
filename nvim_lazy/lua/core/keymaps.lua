@@ -58,7 +58,8 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle Tree"})
 
 
 --Tab management shortcuts
-vim.keymap.set('n', '<C-w>t', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
+vim.keymap.set('n', '<C-w>T', ':tab split<CR>', { desc = 'Open current buffer in new tab' })
+vim.keymap.set('n', '<C-w>t', ':tabnew <CR>', { desc = 'Open new empty buffer tab' })
 vim.keymap.set('n', ']t', ':tabnext<CR>', { desc = 'Next Tab' })
 vim.keymap.set('n', '[t', ':tabprevious<CR>', { desc = 'Previous Tab' })
 

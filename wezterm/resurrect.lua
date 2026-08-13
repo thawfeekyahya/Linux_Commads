@@ -9,18 +9,24 @@ resurrect.state_manager.periodic_save({ interval_seconds = 900 })
 
 -- Inject keybindings into main keys table
 function M.apply_to_keys(keys_table)
-  -- LEADER + S: Save current workspace state
+  -- LEADER + s: Save current workspace state
   table.insert(keys_table, {
-    key = "S",
+    key = "s",
     mods = "LEADER",
     action = wezterm.action_callback(function(win, pane)
       resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
+      wezterm.log_info("Workspace state saved")
+      --win:toast_notification("WezTerm Resurrect", "Workspace state saved!", nil, 3000)
+      win:set_right_status(wezterm.format({
+        { Foreground = { Color = "#a6e3a1" } },
+        { Text = " Saved! " },
+      }))
     end),
   })
 
   -- LEADER + R: Load workspace/window state via fuzzy finder
   table.insert(keys_table, {
-    key = "R",
+    key = "l",
     mods = "LEADER",
     action = wezterm.action_callback(function(win, pane)
       resurrect.fuzzy_loader.fuzzy_load(win, pane, function(id, label)
@@ -47,7 +53,7 @@ function M.apply_to_keys(keys_table)
 
   -- LEADER + D: Delete a saved state via fuzzy finder
   table.insert(keys_table, {
-    key = "D",
+    key = "d",
     mods = "LEADER",
     action = wezterm.action_callback(function(win, pane)
       resurrect.fuzzy_loader.fuzzy_load(win, pane, function(id)
