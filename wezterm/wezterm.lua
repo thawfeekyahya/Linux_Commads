@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 local is_macos = wezterm.target_triple:find("darwin") ~= nil
 
 -- Platform-specific modifiers
-local CMD = is_macos and "CMD" or "CTRL|SHIFT"
+local CMD = is_macos and "CMD" or "CTRL|ALT"
 
 -- Set leader key (CTRL+a avoids macOS intercepting CMD+a as "Select All")
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }

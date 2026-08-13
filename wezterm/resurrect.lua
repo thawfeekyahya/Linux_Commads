@@ -16,11 +16,6 @@ function M.apply_to_keys(keys_table)
     action = wezterm.action_callback(function(win, pane)
       resurrect.state_manager.save_state(resurrect.workspace_state.get_workspace_state())
       wezterm.log_info("Workspace state saved")
-      --win:toast_notification("WezTerm Resurrect", "Workspace state saved!", nil, 3000)
-      win:set_right_status(wezterm.format({
-        { Foreground = { Color = "#a6e3a1" } },
-        { Text = " Saved! " },
-      }))
     end),
   })
 
