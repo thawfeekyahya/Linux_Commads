@@ -10,7 +10,7 @@ local CMD = is_macos and "CMD" or "CTRL|SHIFT"
 local CMD_SHIFT = is_macos and "CMD|SHIFT" or "CTRL|ALT"
 
 -- Set Space as your leader key
-config.leader = { key = "a", mods = CMD, timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = CMD, timeout_milliseconds = 2000 }
 
 
 config.initial_cols = 120
