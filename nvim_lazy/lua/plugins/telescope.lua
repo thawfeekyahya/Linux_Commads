@@ -147,7 +147,12 @@ return {
         debug = true,
         layout_strategy = "vertical",
         layout_config = {
-          preview_height = 0.7,
+          vertical = {
+            preview_height = 0.7,
+            preview_cutoff = 0,
+          },
+          width = 0.95,
+          height = 0.90,
         },
         vimgrep_arguments = {
           "rg", "--color=never", "--no-heading", "--with-filename",
