@@ -1,10 +1,9 @@
-## Align & Sign APK (OneLiner)
-```
-zipalign -p  4 ./app/build/release-unsigned.apk ./app/build/release-aligned.apk && 
-apksigner sign --ks ../Samples.keystore --ks-key-alias sample ./app/build/release-aligned.apk && 
-apksigner verify --verbose ./app/build/release-aligned.apk
-```
 
+# =========================Configs=========================
+## AVD Config
+```
+cat ~/.android/avd/<AVD_NAME>.avd/config.ini
+```
 ## Android SDK Setup
 ```
 #------------------------- ANDROID SDK SETTINGS -------------------------# 
@@ -29,10 +28,78 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
 #--------------------------------------------------# 
 ```
-
+# =========================ADB Commands=========================
 ## Filter logs
 	adb logcat AndroidRuntime:I com.luxoft.carbon:I *:S ApplicationManager:I
 ## Screen Mirror
 	adb shell screenrecord --ouput-format=h264 - | ffplay -
 	adb shell screenrecord --bit-rate=16m --output-format=h264 --size 800x600 - | ffplay -framerate 60 -framedrop -bufsize 16M -
 
+## Reboot image via AVD
+```
+adb reboot
+```
+
+## Reboot with Serial
+```
+adb -s <device_serial> reboot
+```
+## Device Info
+```
+adb devices
+```
+
+## ADB install APK
+```
+adb install <apk_path>
+```
+## List installed packages
+```
+adb shell pm list packages
+```
+
+## Get App pid
+```
+adb shell pidof <package_name>
+```
+
+### ________________________LOGCAT__________________________ 
+
+## Filter by PID
+```
+adb logcat --pid=12345
+```
+
+# =========================AVD Commands=========================
+## List available AVDs
+```
+emulator -list-avds
+```
+
+## Star with no snapshot
+```
+emulator -avd <AVD_NAME> \
+    -no-snapshot-load \
+    -no-snapshot-save
+```
+
+## Wipe Data
+```
+emulator -avd <AVD_NAME> -wipe-data
+```
+
+## Check AVD host camera support
+```
+emulator -webcam-list
+
+emulator -avd MyAVD \
+    -camera-front webcam0
+```
+
+# =========================App Building=========================
+## Align & Sign APK (OneLiner)
+```
+zipalign -p  4 ./app/build/release-unsigned.apk ./app/build/release-aligned.apk && 
+apksigner sign --ks ../Samples.keystore --ks-key-alias sample ./app/build/release-aligned.apk && 
+apksigner verify --verbose ./app/build/release-aligned.apk
+```
