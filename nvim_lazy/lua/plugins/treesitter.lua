@@ -15,6 +15,8 @@ return {
       "python",
       "javascript",
       "kotlin",
+      "markdown",
+      "markdown_inline",
     },
 
     auto_install = true,
