@@ -13,10 +13,6 @@ export PATH=$ANDROID_HOME/emulator:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/32.0.0:$PATH
 
-export NVIM_PATH=/Users/YAHYATH/opt/nvim-macos-arm64/bin
-
-export PATH=$PATH:$NVIM_PATH
-
 # Java Version Switcher Shortcuts
 alias java11='export JAVA_HOME=$(/usr/libexec/java_home -v 11); export PATH="$JAVA_HOME/bin:$PATH"; java -version'
 alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v 17); export PATH="$JAVA_HOME/bin:$PATH"; java -version'
