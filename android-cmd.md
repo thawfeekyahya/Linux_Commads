@@ -1,5 +1,5 @@
 
-# =========================Configs=========================
+### =========================Configs=========================
 ## AVD Config
 ```
 cat ~/.android/avd/<AVD_NAME>.avd/config.ini
@@ -24,7 +24,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 21)
 
 #--------------------------------------------------# 
 ```
-# =========================ADB Commands=========================
+### =========================ADB Commands=========================
 ## Filter logs
 	adb logcat AndroidRuntime:I com.luxoft.carbon:I *:S ApplicationManager:I
 ## Screen Mirror
@@ -59,14 +59,14 @@ adb shell pm list packages
 adb shell pidof <package_name>
 ```
 
-### ________________________LOGCAT__________________________ 
+### ------------------------LOGCAT-------------------------- 
 
 ## Filter by PID
 ```
 adb logcat --pid=12345
 ```
 
-# =========================AVD Commands=========================
+### =========================AVD Commands=========================
 ## List available AVDs
 ```
 emulator -list-avds
@@ -92,7 +92,7 @@ emulator -avd MyAVD \
     -camera-front webcam0
 ```
 
-# =========================App Building=========================
+### =========================App Building=========================
 ## Align & Sign APK (OneLiner)
 ```
 zipalign -p  4 ./app/build/release-unsigned.apk ./app/build/release-aligned.apk && 
