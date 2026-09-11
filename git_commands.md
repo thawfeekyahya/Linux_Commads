@@ -1,4 +1,8 @@
+## Git Config
+```
+git config --global merge.tool nvimdiff
 
+```
 ## Make tar from commits
 ```
 git archive --output=file.zip HEAD $(git diff --name-only simulation/catwoman/develop-advui-dialogmanager -- if1/  simulation/deadpool/develop-advui -- if1/ --diff-filter=ACM)
