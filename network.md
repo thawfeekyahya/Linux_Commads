@@ -10,7 +10,7 @@ sudo ip link set <device-name> up
 ```
 sudo apt install dnsmasq
 
----sudo nano ~/local-dhcp.conf----
+---local-dhcp.conf------
 
 # Disable DNS server (prevents 127.0.0.1 port 53 conflict)
 port=0
@@ -25,6 +25,15 @@ dhcp-range=192.168.50.10,192.168.50.50,12h
 ---- End of Config file ----
 
 
+--- Start dnsmasq with the config file in **Debug** mode ----
+
+sudo dnsmasq -C ~/local-dhcp.conf -d
+
 ```
 
+## Installing SSH 
+```
+sudo apt install openssh-server 
+sudo systemctl start ssh
+```
 
