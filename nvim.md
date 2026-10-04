@@ -34,5 +34,13 @@ https://www.nerdfonts.com/font-downloads
 cp FiraCodeNerdFontMono-Regular.ttf ~/.local/share/fonts/
 ```
 
+## Live Browser Preview
 
+```
+-- Install browser-sync globally
+npm install -g browser-sync
+
+-- Open current HTML file using browser-sync for live reload
+!browser-sync start --server --files '%:p
+```
 
