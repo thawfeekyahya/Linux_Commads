@@ -59,19 +59,53 @@ use norm command after selecting using the visual select using v
 
 ### Incrementing
 
-10 \<Ctrl+a\>  ->  Increments the number under the cursor by 10
+```
+10 <Ctrl+a>  
+```
 
-vg \<Ctrl+a\> -> Increment all numbers in a visual selection by a specific amount:
+Increments the number under the cursor by 10
+
+```
+vg <Ctrl+a> 
+```
+Increment all numbers in a visual selection by a specific amount:
+
 
 ## Decrementing
 
-10 \<Ctrl+x\> ->  Decrements the number under the cursor by 10
+```
+10 <Ctrl+x>
+```
+Decrements the number under the cursor by 10
 
-vg \<Ctrl+x\> ->  Decrement all numbers in a visual selection by a specific amount
-
+```
+vg <Ctrl+x>
+```
+Decrement all numbers in a visual selection by a specific amount
 
 ### Modifying selection after visual selection
 
-o -> by using o key we can switch between selection start and selection end
+```
+o 
+```
+by using o key we can switch between selection start and selection end
 
+
+### Modifying selection from quick fix list
+
+```
+:cdo g/##/norm @a | update
+```
+### Modfiying the current buffer with pattern matching and macro
+
+```
+:%g/<pattern>/norm <macro>
+
+:%g/##/norm @a
+
+
+--- selected lines only
+
+:10,50g/##/norm @a
+```
 
