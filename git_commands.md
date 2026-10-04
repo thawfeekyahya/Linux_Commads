@@ -68,4 +68,8 @@ git_archive_folder() {
 }
 
 ```
+## Resolving Git Rebase Conflicts
 
+```
+git checkout --ours -- target_files.txt
+```
