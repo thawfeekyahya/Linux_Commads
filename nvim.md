@@ -30,6 +30,8 @@ sudo apt install fonts-powerline fonts-firacode
 
 https://www.nerdfonts.com/font-downloads 
 
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/FiraCode.zip
+
 ```
 cp FiraCodeNerdFontMono-Regular.ttf ~/.local/share/fonts/
 ```
