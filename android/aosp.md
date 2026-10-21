@@ -13,7 +13,6 @@ repo forall -c 'git clean -fdx'
 
 ## Sync
 
-
 ```
 repo sync -c -j$(nproc) --fail-fast
 ```
