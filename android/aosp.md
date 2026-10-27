@@ -17,4 +17,20 @@ repo forall -c 'git clean -fdx'
 repo sync -c -j$(nproc) --fail-fast
 ```
 
+## AOSP build output folder
+
+```
+<asop>/out/target/product/<product_id>
+```
+
+
+## AOSP list all lunch commands
+
+```
+list_products -> List all avaiable lunch commands
+list_variants -> List all build variants
+
+
+```
+
 
