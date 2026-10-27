@@ -59,36 +59,36 @@ use norm command after selecting using the visual select using v
 
 ### Incrementing
 
+Increments the number under the cursor by 10
 ```
 10 <Ctrl+a>  
 ```
 
-Increments the number under the cursor by 10
 
+Increment all numbers in a visual selection by a specific amount:
 ```
 vg <Ctrl+a> 
 ```
-Increment all numbers in a visual selection by a specific amount:
 
 
 ## Decrementing
 
+Decrements the number under the cursor by 10
 ```
 10 <Ctrl+x>
 ```
-Decrements the number under the cursor by 10
 
+Decrement all numbers in a visual selection by a specific amount
 ```
 vg <Ctrl+x>
 ```
-Decrement all numbers in a visual selection by a specific amount
 
 ### Modifying selection after visual selection
 
+by using o key we can switch between selection start and selection end
 ```
 o 
 ```
-by using o key we can switch between selection start and selection end
 
 
 ### Modifying selection from quick fix list
