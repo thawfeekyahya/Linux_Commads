@@ -41,3 +41,14 @@ adb logcat --pid=12345
 ```
 
 
+## System shutdown via adb
+
+```
+# boot to shell first
+adb shell reboot -p
+
+adb shell am start -n android/com.android.internal.app.ShutdownActivity
+
+```
+
+
