@@ -23,6 +23,20 @@ repo sync -c -j$(nproc) --fail-fast
 <asop>/out/target/product/<product_id>
 ```
 
+## Repo status
+
+```
+repo status // check the status
+repo info // check the repo info
+
+```
+
+## Repo Snapshot
+In the Android Open Source Project (AOSP), the repo manifest command generates an XML manifest file that reflects the exact current state of your local checkout.
+```
+repo manifest -r -o pinned_manifest.xml
+```
+
 
 ## Lunch commands
 
@@ -63,8 +77,15 @@ example: aosp_tangorpro_car-ap3a-userdebug
 ## Clean build folder
 
 ```
-make clean
+m clean
+m installclean
 rm -rf out/
+
+// Unset Lunch command
+unset TARGET_PRODUCT TARGET_BUILD_VARIANT TARGET_RELEASE TARGET_DEVICE ANDROID_PRODUCT_OUT ANDROID_BUILD_TOP
+
+
 ```
+
 
 
