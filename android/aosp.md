@@ -98,46 +98,31 @@ https://source.android.com/docs/setup/create/new-device
 
 ```
 
-├── Android.bp -> build/soong/root.bp
-├── aosp-patches
-├── art
-├── bionic
-├── bootable
-├── bootstrap.bash -> build/soong/bootstrap.bash
-├── build
-├── BUILD -> build/bazel/bazel.BUILD
-├── build.sh -> vendor/qcom/opensource/core-utils/build/build.sh
-├── cts
-├── dalvik
-├── developers
-├── development
-├── device --> it contains the entire board configurations, hardware definitions, device trees, and build Makefiles required to compile Android for specific hardware targets.
-├── disregard
-├── emulator-patches
-├── external
-├── frameworks
-├── hardware
-├── kernel
-├── libcore
-├── libnativehelper
-├── lk_inc.mk
-├── maria-system
-├── mbcatbox
-├── out
-├── packages
-├── pdk
-├── platform_testing
-├── prebuilts
-├── qc-patches
-├── sdk
-├── system
-├── test
-├── toolchain
-├── tools
-├── trusty
-├── vendor
-└── WORKSPACE -> build/bazel/bazel.WORKSPACE
-
+.
+├── art/                # Android Runtime: Garbage collector, dex2oat compiler, and core runtime libraries.
+├── bionic/             # Android's custom C standard library (libc, libm, libdl, and dynamic linker).
+├── bootable/           # Bootloader reference code and the Android Recovery OS source.
+├── build/              # Core build system framework (Soong, Blueprint, GNU Make logic, envsetup.sh).
+├── cts/                # Compatibility Test Suite: Automated tests to verify Android API compliance.
+├── dalvik/             # Legacy Dalvik VM utilities, bytecode inspection tools, and dx converter.
+├── developers/         # Developer reference projects, code samples, and demo applications.
+├── development/        # Developer host tools, test frameworks, and development helper utilities.
+├── device/             # Device trees, hardware configurations (BoardConfig.mk), and lunch targets.
+├── external/           # Third-party open-source libraries (SQLite, BoringSSL, Skia, Protobuf, Zlib).
+├── frameworks/         # Core platform APIs: frameworks/base (System UI, WindowManager), frameworks/av (media), frameworks/native.
+├── hardware/           # Hardware Abstraction Layer (HAL) AIDL/HIDL interface definitions and reference drivers.
+├── kernel/             # Build tools, configurations, and header references for the Linux Kernel/GKI.
+├── libcore/            # Java core libraries (java.lang, java.util, java.io) derived from OpenJDK.
+├── libnativehelper/    # Native helper functions and utilities for JNI (Java Native Interface) interactions.
+├── packages/           # System apps (Launcher3, Settings, Camera), Content Providers, and System Services.
+├── pdk/                # Platform Development Kit resources used for vendor hardware bring-up.
+├── platform_testing/   # Integration, performance, and automated system testing frameworks (VTS, TradeFed).
+├── prebuilts/          # Pre-compiled toolchains (Clang/LLVM, Rust, JDK, NDK) for deterministic builds.
+├── sdk/                # Android SDK components, build tools sources, and emulator integrations.
+├── system/             # Core OS daemons and C/C++ native services (init, vold, netd, adb, fastboot).
+├── toolchain/          # Compiler toolchain management scripts, PGO profiles, and benchmarks.
+├── tools/              # Engineering tools, API linters (metalava), git hooks, and test harnesses.
+└── vendor/             # Proprietary binaries, GPU drivers, HAL implementations, and vendor blobs.
 ```
 
 
