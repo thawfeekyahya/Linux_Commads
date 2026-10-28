@@ -1,6 +1,4 @@
 
-### ============================= Reposync Commands =============================
-
 ## Clean / Reset Repo
 
 ```
@@ -9,6 +7,25 @@ repo forall -c 'git reset --hard HEAD'
 
 # 2. Clean out untracked files/directories across all submodules
 repo forall -c 'git clean -fdx'
+```
+
+## Clean build folder
+
+```
+m clean
+m installclean
+rm -rf out/
+
+// Unset Lunch command
+unset TARGET_PRODUCT TARGET_BUILD_VARIANT TARGET_RELEASE TARGET_DEVICE ANDROID_PRODUCT_OUT ANDROID_BUILD_TOP
+
+```
+
+## Run Test build
+In Android AOSP, running m nothing runs a lightweight build execution using Soong/Ninja that parses all Android build files (Android.bp and Android.mk), constructs the entire build dependency graph, and verifies build syntax without actually compiling any code or generating binary outputs.
+
+```
+m nothing
 ```
 
 ## Sync
@@ -76,17 +93,6 @@ example: aosp_tangorpro_car-ap3a-userdebug
 
 ```
 
-## Clean build folder
-
-```
-m clean
-m installclean
-rm -rf out/
-
-// Unset Lunch command
-unset TARGET_PRODUCT TARGET_BUILD_VARIANT TARGET_RELEASE TARGET_DEVICE ANDROID_PRODUCT_OUT ANDROID_BUILD_TOP
-
-```
 
 ## Adding a new device configs
 
