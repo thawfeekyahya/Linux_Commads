@@ -1,3 +1,12 @@
+## Nvim Config Locations
+
+```
+# Swap files
+/home/neo/.local/state/nvim/swap
+
+# Workspace files
+/home/neo/.local/share/nvim/sessions
+```
 ## LSP Dependencies
 
 CMake language server
