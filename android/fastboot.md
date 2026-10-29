@@ -72,6 +72,7 @@ mkdir -p /tmp/vendor_mount
 sudo mount -o loop,ro vendor.img /tmp/vendor_mount
 mkdir -p ~/Workspace/extracted_vendor
 sudo cp -a /tmp/vendor_mount/* ~/Workspace/extracted_vendor/
+sudo umount /tmp/vendor_mount
 
 # For vendor_dlkm.img
 
@@ -79,7 +80,14 @@ mkdir -p /tmp/vendor_mount
 sudo mount -o loop,ro vendor_dlkm.img /tmp/vendor_mount
 mkdir -p ~/Workspace/extracted_vendor_dlkm
 sudo cp -a /tmp/vendor_mount/* ~/Workspace/extracted_vendor_dlkm/
+sudo umount /tmp/vendor_mount
 
+```
+### Copy vendor files to AOSP source code
+
+```
+cp -a ~/Workspace/extracted_vendor_dlkm/* vendor/google/tangorpro/proprietary/modules/
+cp -a ~/Workspace/extracted_vendor/* vendor/google/tangorpro/proprietary/modules/
 ```
 
 
