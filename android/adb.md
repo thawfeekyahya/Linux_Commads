@@ -1,4 +1,4 @@
-### =========================ADB Commands=========================
+# ADB Commands
 ## Filter logs
 	adb logcat AndroidRuntime:I com.luxoft.carbon:I *:S ApplicationManager:I
 ## Screen Mirror
