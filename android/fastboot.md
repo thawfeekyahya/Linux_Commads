@@ -91,3 +91,7 @@ cp -a ~/Workspace/extracted_vendor/* vendor/google/tangorpro/proprietary/modules
 ```
 
 
+## Cloud Flashing
+
+https://developers.google.com/android/images
+https://flash.android.com/
