@@ -132,6 +132,12 @@ https://source.android.com/docs/setup/create/new-device
 
 ## AOSP folder structure
 
+NOTE: Generic lunch config exists under
+
+```
+build/make/target/product/
+```
+
 ```
 
 .
