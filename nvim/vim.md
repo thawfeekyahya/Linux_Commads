@@ -109,3 +109,9 @@ o
 :10,50g/##/norm @a
 ```
 
+### Delete multiple file buffer
+
+```
+<leader>fb
+:1,5bd!
+```

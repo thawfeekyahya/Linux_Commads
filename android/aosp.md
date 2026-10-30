@@ -14,7 +14,14 @@ repo forall -c 'git clean -ffdx'
 # 4. Sync changes after clean
 
 repo sync -c -j$(nproc) --fail-fast
-```
+
+# 5. Sync / reset submodules
+repo forall -c 'git submodule update --init --recursive'
+
+# 6. Force Sync
+repo sync --force-sync <path_to_submodule>
+// -d here for detached branch
+repo sync --force-sync -d external/boost vendor/qcom/proprietary ```
 
 ## Clean build folder
 
@@ -33,6 +40,11 @@ In Android AOSP, running m nothing runs a lightweight build execution using Soon
 ```
 m nothing
 ```
+## Start AOSP build
+
+```
+m -j$(nproc)
+```
 
 
 ## AOSP build output folder
@@ -47,6 +59,23 @@ m nothing
 repo status // check the status
 repo info // check the repo info
 
+```
+## Repo manifest file
+
+After you run repo init and repo sync, the manifest files are stored inside the hidden .repo directory at the root of your workspace.
+
+Specifically, you can find and edit them here:
+
+The Specific File (default.xml):.repo/manifests/default.xml
+The Active Symlink:.repo/manifest.xml(This is a symlink that points directly to whichever manifest XML file is currently active in your workspace.)
+
+```
+.repo/manifests
+```
+To switch to different manifest
+
+```
+repo init -m <file>
 ```
 
 ## Repo Snapshot
