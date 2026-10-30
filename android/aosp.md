@@ -7,6 +7,13 @@ repo forall -c 'git reset --hard HEAD'
 
 # 2. Clean out untracked files/directories across all submodules
 repo forall -c 'git clean -fdx'
+
+# 3. Force clean all
+repo forall -c 'git clean -ffdx'
+
+# 4. Sync changes after clean
+
+repo sync -c -j$(nproc) --fail-fast
 ```
 
 ## Clean build folder
@@ -20,7 +27,6 @@ rm -rf out/
 unset TARGET_PRODUCT TARGET_BUILD_VARIANT TARGET_RELEASE TARGET_DEVICE ANDROID_PRODUCT_OUT ANDROID_BUILD_TOP
 
 ```
-
 ## Run Test build
 In Android AOSP, running m nothing runs a lightweight build execution using Soong/Ninja that parses all Android build files (Android.bp and Android.mk), constructs the entire build dependency graph, and verifies build syntax without actually compiling any code or generating binary outputs.
 
@@ -28,11 +34,6 @@ In Android AOSP, running m nothing runs a lightweight build execution using Soon
 m nothing
 ```
 
-## Sync
-
-```
-repo sync -c -j$(nproc) --fail-fast
-```
 
 ## AOSP build output folder
 
@@ -130,5 +131,4 @@ https://source.android.com/docs/setup/create/new-device
 ├── tools/              # Engineering tools, API linters (metalava), git hooks, and test harnesses.
 └── vendor/             # Proprietary binaries, GPU drivers, HAL implementations, and vendor blobs.
 ```
-
 
