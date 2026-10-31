@@ -136,9 +136,12 @@ sudo umount /mnt/qnx-lab-esp
 
 ### Boot the UEFI target in QEMU
 
+QEMU's default `qemu64` CPU model loads the EFI application but does not get this QNX image to its startup console. Use `-cpu max`; with this setting the image reaches the QNX shell.
+
 ```
 qemu-system-x86_64 \
   -m 2048 \
+  -cpu max \
   -drive if=pflash,format=raw,readonly=on,file=/tmp/qnx-lab/OVMF_CODE_4M.fd \
   -drive if=pflash,format=raw,file=/tmp/qnx-lab/qnx-vars.fd \
   -drive file=/tmp/qnx-lab/qnx-esp.img,format=raw,if=ide \
